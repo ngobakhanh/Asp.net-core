@@ -1,0 +1,82 @@
+﻿@model ServiceReference_Employee.Employee
+<div class="page-content-inner">
+    <!-- Start .page-content-inner -->
+    <form asp-action="EmployeeSave" asp-controller="Admin" class="form-horizontal group-border stripped">
+        <div id="page-header" class="clearfix">
+            <div class="page-header">
+                <h2>Employees</h2>
+                @*<span class="txt">Load data from api or dynamic via ajax</span>*@
+            </div>
+            <div class="header-stats">
+                <button type="submit" class="btn btn-info"><i class="fa fa-save"></i></button>
+                <a asp-action="EmployeeIndex" asp-controller="Admin"><i class="btn btn-info fa fa-mail-reply"></i></a>
+            </div>
+        </div>
+        <div class="@(ViewBag.flag == "success" ? "alert alert-success fade in" : ViewBag.flag == "error" ? "alert alert-danger fade in" : "hidden")">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <i class="fa fa-check alert-icon "></i>
+            @ViewBag.message
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- col-lg-12 start here -->
+                <div class="panel panel-default plain toggle">
+                    <!-- Start .panel -->
+                    <div class="panel-heading">
+                        <h4 class="panel-title">Add employee</h4>
+                    </div>
+                    <div class="panel-body pt0 pb0">
+                        <div class="form-group hidden">
+                            <label class="col-lg-2 col-md-3 control-label" for="">Employee Id</label>
+                            <div class="col-lg-10 col-md-9">
+                                <input type="text" class="form-control" readonly asp-for="EmployeeId">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 col-md-3 control-label" for="">Full name</label>
+                            <div class="col-lg-10 col-md-9">
+                                <input type="text" class="form-control required" required asp-for="Fullname">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 col-md-3 control-label" for="">Email</label>
+                            <div class="col-lg-10 col-md-9">
+                                <input type="email" class="form-control" required asp-for="Email">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 col-md-3 control-label" for="">Phone</label>
+                            <div class="col-lg-10 col-md-9">
+                                <input type="text" class="form-control" id="mask-phone" placeholder="999 999 9999" asp-for="Phone">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 col-md-3 control-label" for="">Address</label>
+                            <div class="col-lg-10 col-md-9">
+                                <textarea rows="6" class="form-control" required asp-for="AddressEmp"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 col-md-3 control-label">Status</label>
+                            <div class="col-lg-10 col-md-9">
+                                <div class="radio-custom">
+                                    <input type="radio" value="Enable" checked="checked" id="radio1" asp-for="StatusEmp">
+                                    <label for="radio1">Enable</label>
+                                </div>
+                                <div class="radio-custom">
+                                    <input type="radio" value="Disable" id="radio2" asp-for="StatusEmp">
+                                    <label for="radio2">Disable</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

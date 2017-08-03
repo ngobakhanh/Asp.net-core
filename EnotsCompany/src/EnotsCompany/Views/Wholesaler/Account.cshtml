@@ -1,0 +1,107 @@
+﻿@model EnotsCompany.Models.WholesalerModel
+@{
+    Layout = "~/Views/Home/_Layout.cshtml";
+}
+@using EnotsCompany.Models
+<div id="all">
+
+    <div id="content">
+        <div class="container">
+
+            <div class="col-md-12">
+
+                <ul class="breadcrumb">
+                    <li>
+                        <a asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li>My account</li>
+                </ul>
+
+            </div>
+
+            <div class="col-md-3">
+                @Html.Partial("~/Views/Wholesaler/_LeftMenu.cshtml")
+            </div>
+
+
+            <div class="col-md-9">
+                @if (ViewBag.msg == "success")
+            {
+                    <div class="alert alert-success">
+                        <strong>Success!</strong> Updated profile success.
+                    </div>
+                }
+                else if (ViewBag.msg == "error")
+                {
+                    <div class="alert alert-danger">
+                        <strong>Error!</strong> Updated profile unsuccess.
+                    </div>
+                }
+                <div class="box">
+                    <h3>Personal details</h3>
+                    <form method="post" asp-controller="Wholesaler" asp-action="saveAccount">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label asp-for="@Model.Fullname">Fullname</label>
+                                    <input type="text" class="form-control" asp-for="@Model.Fullname" />
+                                    <input type="text" class="form-control hidden" asp-for="@Model.WholesalerId" />
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.row -->
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label asp-for="@Model.AddressWS">Address</label>
+                                    <input type="text" class="form-control" asp-for="@Model.AddressWS" />
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.row -->
+
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="@Model.Website">Website</label>
+                                    <input type="text" class="form-control" asp-for="@Model.Website" />
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <label for="country">Country</label>
+                                    <select class="form-control" asp-for="@Model.CountryId" asp-items="@(new SelectList(Model.coutries,"CountryId","CommonName"))">
+                                        <option value="na">Choose One:</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label asp-for="@Model.Phone">Telephone</label>
+                                    <input type="text" class="form-control" asp-for="@Model.Phone" />
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label asp-for="@Model.Email">Email </label>
+                                    <input type="text" class="form-control" readonly asp-for="@Model.Email" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 text-center">
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save changes</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /#content -->
+</div>

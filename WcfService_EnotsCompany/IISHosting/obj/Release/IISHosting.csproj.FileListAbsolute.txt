@@ -1,0 +1,79 @@
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\bin\ApplicationInsights.config
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\bin\roslyn\csc.exe
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\bin\roslyn\vbc.exe
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\bin\roslyn\VBCSCompiler.exe
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\bin\IISHosting.dll.config
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\bin\IISHosting.dll
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\bin\IISHosting.pdb
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\bin\Microsoft.AI.Web.dll
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\bin\WcfServiceLibrary_EnotsCompany.dll
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\bin\EntityFramework.dll
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\bin\EntityFramework.SqlServer.dll
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\bin\WcfServiceLibrary_EnotsCompany.pdb
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\bin\Microsoft.AI.Web.xml
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\bin\EntityFramework.xml
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\bin\EntityFramework.SqlServer.xml
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\obj\Release\IISHosting.csprojResolveAssemblyReference.cache
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\obj\Release\IISHosting.dll
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\IISHosting\obj\Release\IISHosting.pdb
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\bin\ApplicationInsights.config
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\bin\roslyn\csc.exe
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\bin\roslyn\vbc.exe
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\bin\roslyn\VBCSCompiler.exe
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\bin\IISHosting.dll.config
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\bin\IISHosting.dll
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\bin\IISHosting.pdb
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\bin\Microsoft.AI.Web.dll
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\bin\WcfServiceLibrary_EnotsCompany.dll
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\bin\EntityFramework.dll
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\bin\EntityFramework.SqlServer.dll
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\bin\WcfServiceLibrary_EnotsCompany.pdb
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\bin\Microsoft.AI.Web.xml
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\bin\EntityFramework.xml
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\bin\EntityFramework.SqlServer.xml
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\obj\Release\IISHosting.csprojResolveAssemblyReference.cache
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\obj\Release\IISHosting.dll
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\obj\Release\IISHosting.pdb
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\IISHosting\bin\roslyn\desktop.ini

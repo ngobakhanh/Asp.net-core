@@ -1,0 +1,157 @@
+﻿@model EnotsCompany.Models.WholesalerModel
+<div class="page-content-inner">
+    <!-- Start .page-content-inner -->
+    <form asp-action="WholesalerUpdate" asp-controller="Admin" class="form-horizontal group-border stripped">
+        <div id="page-header" class="clearfix">
+            <div class="page-header">
+                <h2>Wholesalers</h2>
+                @*<span class="txt">Load data from api or dynamic via ajax</span>*@
+            </div>
+            <div class="header-stats">
+                <button type="submit" class="btn btn-info"><i class="fa fa-save"></i></button>
+                <a asp-action="WholesalerIndex" asp-controller="Admin"><i class="btn btn-info fa fa-mail-reply"></i></a>
+            </div>
+        </div>
+        <div class="@(ViewBag.flag == "success" ? "alert alert-success fade in" : ViewBag.flag == "error" ? "alert alert-danger fade in" : "hidden")">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <i class="fa fa-check alert-icon "></i>
+            @ViewBag.message
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- col-lg-12 start here -->
+                <div class="panel panel-default plain toggle">
+                    <!-- Start .panel -->
+                    <div class="panel-heading">
+                        <h4 class="panel-title">Create new wholesaler</h4>
+                    </div>
+
+                    <div class="panel-body p0">
+                        <div class="tabs inside-panel">
+                            <ul id="myTab5" class="nav nav-tabs">
+                                <li>
+                                    <a href="#home5" data-toggle="tab">Wholesaler</a>
+                                </li>
+                                @*<li class="">
+                                    <a href="#company" data-toggle="tab">Company</a>
+                                </li>*@
+                            </ul>
+                            <div id="myTabContent5" class="tab-content">
+                                <div class="tab-pane fade active in" id="home5">
+                                    <div class="form-group hidden">
+                                        <label class="col-lg-2 col-md-3 control-label" for="">WholeSaler Id</label>
+                                        <div class="col-lg-10 col-md-9">
+                                            <input type="text" class="form-control" readonly asp-for="@Model.WholesalerId">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-2 col-md-3 control-label" for="">Fullname</label>
+                                        <div class="col-lg-10 col-md-9">
+                                            <input type="text" required class="form-control required" asp-for="@Model.Fullname">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-2 col-md-3 control-label" for="">Email</label>
+                                        <div class="col-lg-10 col-md-9">
+                                            <input type="email" required class="form-control" asp-for="@Model.Email">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-2 col-md-3 control-label" for="">Phone</label>
+                                        <div class="col-lg-10 col-md-9">
+                                            <input type="text" id="mask-phone" class="form-control" asp-for="@Model.Phone">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-2 col-md-3 control-label" for="">Address</label>
+                                        <div class="col-lg-10 col-md-9">
+                                            <textarea type="text" rows="4" required class="form-control" asp-for="@Model.AddressWS"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-2 col-md-3 control-label">Country</label>
+                                        <div class="col-lg-10 col-md-9">
+                                            <select required asp-for="@Model.CountryId" asp-items="@(new SelectList(Model.coutries,"CountryId", "CommonName"))" class="form-control">
+                                                <option>Select Country</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-2 col-md-3 control-label" for="">Website</label>
+                                        <div class="col-lg-10 col-md-9">
+                                            <input type="text" class="form-control" asp-for="@Model.Website" placeholder="http://">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-2 col-md-3 control-label">Status</label>
+                                        <div class="col-lg-10 col-md-9">
+                                            <div class="radio-custom radio-inline">
+                                                <input type="radio" asp-for="@Model.StatusWS" checked="checked" value="Enable" id="radio4">
+                                                <label for="radio4">Enable</label>
+                                            </div>
+                                            <div class="radio-custom radio-inline">
+                                                <input type="radio" asp-for="@Model.StatusWS" value="Disable" id="radio5">
+                                                <label for="radio5">Disable</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @*<div class="tab-pane fade" id="company">
+                                    <div class="form-group hidden">
+                                        <div class="col-lg-10 col-md-9">
+                                            <input type="text" class="form-control" readonly asp-for="@Model.ContactPersonId">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-2 col-md-3 control-label" for="">Company name</label>
+                                        <div class="col-lg-10 col-md-9">
+                                            <input type="text" required class="form-control required" asp-for="@Model.CompanyName">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-2 col-md-3 control-label" for="">Email</label>
+                                        <div class="col-lg-10 col-md-9">
+                                            <input type="email" required class="form-control" asp-for="@Model.CEmail">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-2 col-md-3 control-label" for="">Phone</label>
+                                        <div class="col-lg-10 col-md-9">
+                                            <input type="text" class="form-control" id="mask-phone" asp-for="@Model.CPhone">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-2 col-md-3 control-label">Status</label>
+                                        <div class="col-lg-10 col-md-9">
+                                            <div class="radio-custom radio-inline">
+                                                <input type="radio" asp-for="@Model.StatusCP" checked="checked" value="Enable" id="radio4">
+                                                <label for="radio4">Enable</label>
+                                            </div>
+                                            <div class="radio-custom radio-inline">
+                                                <input type="radio" asp-for="@Model.StatusCP" value="Disable" id="radio5">
+                                                <label for="radio5">Disable</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>*@
+
+                            </div>
+                        </div>
+                        <!-- End .tabs -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

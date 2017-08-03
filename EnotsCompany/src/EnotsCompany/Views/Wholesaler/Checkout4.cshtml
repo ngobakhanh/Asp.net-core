@@ -1,0 +1,229 @@
+﻿@using System.Globalization
+@using EnotsCompany.Controllers
+@model ServiceReference_Invoice.Invoice
+@{
+    Layout = "~/Views/Home/_Layout.cshtml";
+    ServiceReference_PurchaseOrder.PurchaseOrderServiceClient po = new ServiceReference_PurchaseOrder.PurchaseOrderServiceClient();
+    ServiceReference_PurchaseOrder.PurchaseOrder purchase = await po.findPurchaseOrderByIdAsync(Model.PurchaseOrderId);
+    ServiceReference_Item.Item it = null;
+}
+
+<div id="all">
+
+    <div id="content">
+        <div class="container">
+
+            <div class="col-md-12">
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>Checkout - Order review</li>
+                </ul>
+            </div>
+
+            <div class="col-md-9" id="checkout">
+
+                <div class="box">
+                    <form method="post">
+                        <h1>Checkout - Order review</h1>
+                        <ul class="nav nav-pills nav-justified">
+                            <li>
+                                <a asp-controller="Wholesaler" asp-action="checkout1" asp-route-id="@Model.InvoiceId"><i class="fa fa-map-marker"></i><br>Address</a>
+                            </li>
+                            <li>
+                                <a asp-controller="Wholesaler" asp-action="checkout2" asp-route-id="@Model.InvoiceId"><i class="fa fa-truck"></i><br>Delivery Method</a>
+                            </li>
+                            <li>
+                                <a asp-controller="Wholesaler" asp-action="checkout3" asp-route-id="@Model.InvoiceId"><i class="fa fa-money"></i><br>Payment Method</a>
+                            </li>
+                            <li class="active">
+                                <a href="#"><i class="fa fa-eye"></i><br>Order Review</a>
+                            </li>
+                        </ul>
+
+                        <div class="content">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="2">Product</th>
+                                            <th>Quantity</th>
+                                            <th>Unit price</th>
+                                            <th>Discount</th>
+                                            <th>Tax</th>
+                                            <th>Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        @foreach (var item in purchase.PurchaseOrderDetails)
+                                        {
+                                            it = await WholesalerController.getValueById(item.ItemId);
+                                            <tr>
+                                                <td>
+                                                    <a asp-controller="Home" asp-action="ItemDetail" asp-route-id="@item.ItemId">
+                                                        <img src="~/images/@it.ImageItem" alt="">
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a asp-controller="Home" asp-action="ItemDetail" asp-route-id="@item.ItemId">@it.ItemName</a>
+                                                </td>
+                                                <td>@item.Quantity</td>
+                                                <td>@item.Price.ToString("C0", new CultureInfo("en-US"))</td>
+                                                <td>@(item.Quantity * item.Price * item.Discount / 100)$</td>
+                                                <td>@(item.Quantity * item.Price * item.Tax / 100)$</td>
+                                                <td>@(((double)item.LineTotal).ToString("C0",new CultureInfo("en-US")))</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th colspan="6">Total</th>
+                                            <th>@(((double)(Model.Total - Model.ShipFee)).ToString("C0", new CultureInfo("en-US")))</th> 
+                                        </tr>
+                                    </tfoot>
+                                </table>
+
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.content -->
+
+                        <div class="box-footer">
+                            <div class="pull-left">
+                                <a asp-controller="Wholesaler" asp-action="checkout3" asp-route-id="@Model.InvoiceId" class="btn btn-default"><i class="fa fa-chevron-left"></i>Back to Payment method</a>
+                            </div>
+                            <div class="pull-right">
+                                <div id="paypal-button"></div>
+                                <input type="hidden" id="invoiceId" value="@Model.InvoiceId" />
+                                @*<button id="checkout" type="button" class="btn btn-primary">
+                                    Place an order<i class="fa fa-chevron-right"></i>
+                                </button>*@
+                            </div>
+                        </div>
+                    </form>
+                    <div class="">
+                        <img src="~/images/success_payment.png" id="img_success" style="display: none;margin: 0px auto;"/>
+                    </div>
+                </div>
+                <!-- /.box -->
+
+
+            </div>
+            <!-- /.col-md-9 -->
+
+            <div class="col-md-3">
+
+                <div class="box" id="order-summary">
+                    <div class="box-header">
+                        <h3>Order summary</h3>
+                    </div>
+                    <p class="text-muted">Shipping and additional costs are calculated based on the values you have entered.</p>
+
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>Order subtotal</td>
+                                    <th>@(((double)(Model.Total - Model.ShipFee)).ToString("C0", new CultureInfo("en-US")))</th>
+                                </tr>
+                                <tr>
+                                    <td>Shipping and handling</td>
+                                    <th>@(((double)Model.ShipFee).ToString("C0", new CultureInfo("en-US")))</th>
+                                </tr>
+                                <tr class="total">
+                                    <td>Total</td>
+                                    <th>@(((double)Model.Total).ToString("C0", new CultureInfo("en-US"))) </th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- /.col-md-3 -->
+
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /#content -->
+</div>
+<!-- /#all -->
+
+<script src="~/client/js/jquery-1.11.0.min.js"></script>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+
+
+
+<script>
+
+    var total = @Model.Total;
+
+                paypal.Button.render({
+
+                    env: 'sandbox', // Or 'sandbox',
+
+        commit: true, // Show a 'Pay Now' button
+        client: {
+                        //sandbox: 'AeCqoSZNk2kyTviRvy7ADUNMgHv9lhg45CV2rDOTRgMgpJqkK8wXokidN8tbtjVsyNgtPtpGRdZosx_o'
+
+                        sandbox: 'AZfRITN6drwz5lkJo3IDzjg4YUlVDpl7mW-uczKntg-TTQianiK46ZpTj6opeaNUL5we3Z99RpOB4xp9'
+
+        },
+
+        payment: function (data, actions) {
+                        return actions.payment.create({
+                            payment: {
+                                transactions: [
+                                    {
+                                    amount: { total: total, currency: 'USD' },
+                            "item_list": {
+                                        "items": [
+                                            {
+                                        "name": "@it.ItemName",
+                                                "description": "@it.ItemName",
+                                                "quantity": "1",
+                                                "price": "@Model.Total",
+                                                "tax": "1",
+                                                "sku": "1",
+                                                "currency": "USD"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            });
+        },
+
+
+        onAuthorize: function (data, actions) {
+        return actions.payment.execute().then(function (payment) {
+
+            //alert('ok' + payment.id);
+            // You can now show a confirmation message to the customer
+            var paymentId = payment.id;
+            var invoiceId = $('#invoiceId').val();
+                $.ajax({
+                url: '/Wholesaler/Checkout',
+                    type: "post",
+                    cache: false,
+                    data: {
+                    paymentId: paymentId,
+                        invoiceId: invoiceId
+                    },
+                    success: function (result) {
+                        $('#img_success').css('display','block');
+                },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    alert('error');
+                }
+            });
+        });
+    }
+
+    }, '#paypal-button');
+</script>

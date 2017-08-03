@@ -1,0 +1,453 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="B2BModelStoreContainer" CdmEntityContainer="B2BEntities">
+    <EntitySetMapping Name="Articles">
+      <EntityTypeMapping TypeName="B2BModel.Article">
+        <MappingFragment StoreEntitySet="Article">
+          <ScalarProperty Name="ArticleId" ColumnName="ArticleId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ImageArticle" ColumnName="ImageArticle" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="AddDate" ColumnName="AddDate" />
+          <ScalarProperty Name="ViewCount" ColumnName="ViewCount" />
+          <ScalarProperty Name="StatusArticle" ColumnName="StatusArticle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="B2BModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="ImageCate" ColumnName="ImageCate" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="StatusCate" ColumnName="StatusCate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContactPersons">
+      <EntityTypeMapping TypeName="B2BModel.ContactPerson">
+        <MappingFragment StoreEntitySet="ContactPerson">
+          <ScalarProperty Name="ContactPersonId" ColumnName="ContactPersonId" />
+          <ScalarProperty Name="WholesalerId" ColumnName="WholesalerId" />
+          <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="StatusCP" ColumnName="StatusCP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="B2BModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="CommonName" ColumnName="CommonName" />
+          <ScalarProperty Name="StatusCountry" ColumnName="StatusCountry" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="B2BModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="AddressEmp" ColumnName="AddressEmp" />
+          <ScalarProperty Name="StatusEmp" ColumnName="StatusEmp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Feedbacks">
+      <EntityTypeMapping TypeName="B2BModel.Feedback">
+        <MappingFragment StoreEntitySet="Feedback">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SubjectFB" ColumnName="SubjectFB" />
+          <ScalarProperty Name="WholesalerId" ColumnName="WholesalerId" />
+          <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="ReceivedDate" ColumnName="ReceivedDate" />
+          <ScalarProperty Name="ReplyId" ColumnName="ReplyId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Invoices">
+      <EntityTypeMapping TypeName="B2BModel.Invoice">
+        <MappingFragment StoreEntitySet="Invoice">
+          <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+          <ScalarProperty Name="PurchaseOrderId" ColumnName="PurchaseOrderId" />
+          <ScalarProperty Name="EmloyeeID" ColumnName="EmloyeeID" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+          <ScalarProperty Name="PaymentMethodId" ColumnName="PaymentMethodId" />
+          <ScalarProperty Name="CreditCardNumber" ColumnName="CreditCardNumber" />
+          <ScalarProperty Name="CardType" ColumnName="CardType" />
+          <ScalarProperty Name="ExpDate" ColumnName="ExpDate" />
+          <ScalarProperty Name="FromBankNo" ColumnName="FromBankNo" />
+          <ScalarProperty Name="ToBankNo" ColumnName="ToBankNo" />
+          <ScalarProperty Name="InitialPayment" ColumnName="InitialPayment" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="ShipmentMethod" ColumnName="ShipmentMethod" />
+          <ScalarProperty Name="ShipAddress" ColumnName="ShipAddress" />
+          <ScalarProperty Name="ShipFee" ColumnName="ShipFee" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Items">
+      <EntityTypeMapping TypeName="B2BModel.Item">
+        <MappingFragment StoreEntitySet="Item">
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="DescriptionItem" ColumnName="DescriptionItem" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="MinQuantity" ColumnName="MinQuantity" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="ImageItem" ColumnName="ImageItem" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+          <ScalarProperty Name="ParentItem" ColumnName="ParentItem" />
+          <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+          <ScalarProperty Name="Warranty" ColumnName="Warranty" />
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="ShippingFee" ColumnName="ShippingFee" />
+          <ScalarProperty Name="FAQ" ColumnName="FAQ" />
+          <ScalarProperty Name="StatusItem" ColumnName="StatusItem" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemPhotoes">
+      <EntityTypeMapping TypeName="B2BModel.ItemPhoto">
+        <MappingFragment StoreEntitySet="ItemPhoto">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="MoreImage" ColumnName="MoreImage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentMethods">
+      <EntityTypeMapping TypeName="B2BModel.PaymentMethod">
+        <MappingFragment StoreEntitySet="PaymentMethod">
+          <ScalarProperty Name="PaymentMethodId" ColumnName="PaymentMethodId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PurchaseOrders">
+      <EntityTypeMapping TypeName="B2BModel.PurchaseOrder">
+        <MappingFragment StoreEntitySet="PurchaseOrder">
+          <ScalarProperty Name="PurchaseOrderId" ColumnName="PurchaseOrderId" />
+          <ScalarProperty Name="PurchaseOrderDate" ColumnName="PurchaseOrderDate" />
+          <ScalarProperty Name="ReceivedDate" ColumnName="ReceivedDate" />
+          <ScalarProperty Name="WholesalerId" ColumnName="WholesalerId" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="StatusPurchase" ColumnName="StatusPurchase" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PurchaseOrderDetails">
+      <EntityTypeMapping TypeName="B2BModel.PurchaseOrderDetail">
+        <MappingFragment StoreEntitySet="PurchaseOrderDetails">
+          <ScalarProperty Name="PurchaseOrderDetailId" ColumnName="PurchaseOrderDetailId" />
+          <ScalarProperty Name="PurchaseOrderId" ColumnName="PurchaseOrderId" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Tax" ColumnName="Tax" />
+          <ScalarProperty Name="LineTotal" ColumnName="LineTotal" />
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sliders">
+      <EntityTypeMapping TypeName="B2BModel.Slider">
+        <MappingFragment StoreEntitySet="Slider">
+          <ScalarProperty Name="SliderId" ColumnName="SliderId" />
+          <ScalarProperty Name="ImageSlider" ColumnName="ImageSlider" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Suppliers">
+      <EntityTypeMapping TypeName="B2BModel.Supplier">
+        <MappingFragment StoreEntitySet="Supplier">
+          <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="MainProduct" ColumnName="MainProduct" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="Zipcode" ColumnName="Zipcode" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SupplierProfiles">
+      <EntityTypeMapping TypeName="B2BModel.SupplierProfile">
+        <MappingFragment StoreEntitySet="SupplierProfile">
+          <ScalarProperty Name="SupplierProfileId" ColumnName="SupplierProfileId" />
+          <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+          <ScalarProperty Name="BussinessType" ColumnName="BussinessType" />
+          <ScalarProperty Name="MainProduct" ColumnName="MainProduct" />
+          <ScalarProperty Name="YearEstablished" ColumnName="YearEstablished" />
+          <ScalarProperty Name="TotalEmployees" ColumnName="TotalEmployees" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Units">
+      <EntityTypeMapping TypeName="B2BModel.Unit">
+        <MappingFragment StoreEntitySet="Unit">
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+          <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+          <ScalarProperty Name="UnitStatus" ColumnName="UnitStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Wholesalers">
+      <EntityTypeMapping TypeName="B2BModel.Wholesaler">
+        <MappingFragment StoreEntitySet="Wholesaler">
+          <ScalarProperty Name="WholesalerId" ColumnName="WholesalerId" />
+          <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="AddressWS" ColumnName="AddressWS" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="StatusWS" ColumnName="StatusWS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vw_getAllArticle">
+      <EntityTypeMapping TypeName="B2BModel.Vw_getAllArticle">
+        <MappingFragment StoreEntitySet="Vw_getAllArticle">
+          <ScalarProperty Name="StatusArticle" ColumnName="StatusArticle" />
+          <ScalarProperty Name="ViewCount" ColumnName="ViewCount" />
+          <ScalarProperty Name="AddDate" ColumnName="AddDate" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="ImageArticle" ColumnName="ImageArticle" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ArticleId" ColumnName="ArticleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vw_getAllCategory">
+      <EntityTypeMapping TypeName="B2BModel.Vw_getAllCategory">
+        <MappingFragment StoreEntitySet="Vw_getAllCategory">
+          <ScalarProperty Name="StatusCate" ColumnName="StatusCate" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="ImageCate" ColumnName="ImageCate" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vw_getAllContactPerson">
+      <EntityTypeMapping TypeName="B2BModel.Vw_getAllContactPerson">
+        <MappingFragment StoreEntitySet="Vw_getAllContactPerson">
+          <ScalarProperty Name="StatusCP" ColumnName="StatusCP" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+          <ScalarProperty Name="WholesalerId" ColumnName="WholesalerId" />
+          <ScalarProperty Name="ContactPersonId" ColumnName="ContactPersonId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vw_getAllCountry">
+      <EntityTypeMapping TypeName="B2BModel.Vw_getAllCountry">
+        <MappingFragment StoreEntitySet="Vw_getAllCountry">
+          <ScalarProperty Name="StatusCountry" ColumnName="StatusCountry" />
+          <ScalarProperty Name="CommonName" ColumnName="CommonName" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vw_getAllEmployee">
+      <EntityTypeMapping TypeName="B2BModel.Vw_getAllEmployee">
+        <MappingFragment StoreEntitySet="Vw_getAllEmployee">
+          <ScalarProperty Name="StatusEmp" ColumnName="StatusEmp" />
+          <ScalarProperty Name="AddressEmp" ColumnName="AddressEmp" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vw_getAllFeedback">
+      <EntityTypeMapping TypeName="B2BModel.Vw_getAllFeedback">
+        <MappingFragment StoreEntitySet="Vw_getAllFeedback">
+          <ScalarProperty Name="ReplyId" ColumnName="ReplyId" />
+          <ScalarProperty Name="ReceivedDate" ColumnName="ReceivedDate" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+          <ScalarProperty Name="WholesalerId" ColumnName="WholesalerId" />
+          <ScalarProperty Name="SubjectFB" ColumnName="SubjectFB" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vw_getAllInvoice">
+      <EntityTypeMapping TypeName="B2BModel.Vw_getAllInvoice">
+        <MappingFragment StoreEntitySet="Vw_getAllInvoice">
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="ShipFee" ColumnName="ShipFee" />
+          <ScalarProperty Name="ShipAddress" ColumnName="ShipAddress" />
+          <ScalarProperty Name="ShipmentMethod" ColumnName="ShipmentMethod" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="InitialPayment" ColumnName="InitialPayment" />
+          <ScalarProperty Name="ToBankNo" ColumnName="ToBankNo" />
+          <ScalarProperty Name="FromBankNo" ColumnName="FromBankNo" />
+          <ScalarProperty Name="ExpDate" ColumnName="ExpDate" />
+          <ScalarProperty Name="CardType" ColumnName="CardType" />
+          <ScalarProperty Name="CreditCardNumber" ColumnName="CreditCardNumber" />
+          <ScalarProperty Name="PaymentMethodId" ColumnName="PaymentMethodId" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+          <ScalarProperty Name="EmloyeeID" ColumnName="EmloyeeID" />
+          <ScalarProperty Name="PurchaseOrderId" ColumnName="PurchaseOrderId" />
+          <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vw_getAllItem">
+      <EntityTypeMapping TypeName="B2BModel.Vw_getAllItem">
+        <MappingFragment StoreEntitySet="Vw_getAllItem">
+          <ScalarProperty Name="StatusItem" ColumnName="StatusItem" />
+          <ScalarProperty Name="FAQ" ColumnName="FAQ" />
+          <ScalarProperty Name="ShippingFee" ColumnName="ShippingFee" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+          <ScalarProperty Name="Warranty" ColumnName="Warranty" />
+          <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+          <ScalarProperty Name="ParentItem" ColumnName="ParentItem" />
+          <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="ImageItem" ColumnName="ImageItem" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="MinQuantity" ColumnName="MinQuantity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="DescriptionItem" ColumnName="DescriptionItem" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vw_getAllItemPhoto">
+      <EntityTypeMapping TypeName="B2BModel.Vw_getAllItemPhoto">
+        <MappingFragment StoreEntitySet="Vw_getAllItemPhoto">
+          <ScalarProperty Name="MoreImage" ColumnName="MoreImage" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vw_getAllPaymentMethod">
+      <EntityTypeMapping TypeName="B2BModel.Vw_getAllPaymentMethod">
+        <MappingFragment StoreEntitySet="Vw_getAllPaymentMethod">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PaymentMethodId" ColumnName="PaymentMethodId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vw_getAllPurchaseOrder">
+      <EntityTypeMapping TypeName="B2BModel.Vw_getAllPurchaseOrder">
+        <MappingFragment StoreEntitySet="Vw_getAllPurchaseOrder">
+          <ScalarProperty Name="StatusPurchase" ColumnName="StatusPurchase" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="WholesalerId" ColumnName="WholesalerId" />
+          <ScalarProperty Name="ReceivedDate" ColumnName="ReceivedDate" />
+          <ScalarProperty Name="PurchaseOrderDate" ColumnName="PurchaseOrderDate" />
+          <ScalarProperty Name="PurchaseOrderId" ColumnName="PurchaseOrderId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vw_getAllPurchaseOrderDetail">
+      <EntityTypeMapping TypeName="B2BModel.Vw_getAllPurchaseOrderDetail">
+        <MappingFragment StoreEntitySet="Vw_getAllPurchaseOrderDetail">
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+          <ScalarProperty Name="LineTotal" ColumnName="LineTotal" />
+          <ScalarProperty Name="Tax" ColumnName="Tax" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="PurchaseOrderId" ColumnName="PurchaseOrderId" />
+          <ScalarProperty Name="PurchaseOrderDetailId" ColumnName="PurchaseOrderDetailId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vw_getAllSlider">
+      <EntityTypeMapping TypeName="B2BModel.Vw_getAllSlider">
+        <MappingFragment StoreEntitySet="Vw_getAllSlider">
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="ImageSlider" ColumnName="ImageSlider" />
+          <ScalarProperty Name="SliderId" ColumnName="SliderId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vw_getAllSupplier">
+      <EntityTypeMapping TypeName="B2BModel.Vw_getAllSupplier">
+        <MappingFragment StoreEntitySet="Vw_getAllSupplier">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="Zipcode" ColumnName="Zipcode" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="MainProduct" ColumnName="MainProduct" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vw_getAllSupplierProfile">
+      <EntityTypeMapping TypeName="B2BModel.Vw_getAllSupplierProfile">
+        <MappingFragment StoreEntitySet="Vw_getAllSupplierProfile">
+          <ScalarProperty Name="TotalEmployees" ColumnName="TotalEmployees" />
+          <ScalarProperty Name="YearEstablished" ColumnName="YearEstablished" />
+          <ScalarProperty Name="MainProduct" ColumnName="MainProduct" />
+          <ScalarProperty Name="BussinessType" ColumnName="BussinessType" />
+          <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+          <ScalarProperty Name="SupplierProfileId" ColumnName="SupplierProfileId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vw_getAllUnit">
+      <EntityTypeMapping TypeName="B2BModel.Vw_getAllUnit">
+        <MappingFragment StoreEntitySet="Vw_getAllUnit">
+          <ScalarProperty Name="UnitStatus" ColumnName="UnitStatus" />
+          <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vw_getAllWholesaler">
+      <EntityTypeMapping TypeName="B2BModel.Vw_getAllWholesaler">
+        <MappingFragment StoreEntitySet="Vw_getAllWholesaler">
+          <ScalarProperty Name="StatusWS" ColumnName="StatusWS" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="AddressWS" ColumnName="AddressWS" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+          <ScalarProperty Name="WholesalerId" ColumnName="WholesalerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

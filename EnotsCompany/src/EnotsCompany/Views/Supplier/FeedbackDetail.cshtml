@@ -1,0 +1,31 @@
+﻿@model ServiceReference_Feedback.Feedback[]
+<div class="page-content-inner">
+    <div class="row">
+        <div class="col-lg-12">
+            <!-- col-lg-6 start here -->
+            <div class="page-header">
+                <h4>List of feebacks</h4>
+            </div>
+            @foreach (var f in Model)
+            {
+                <div class="panel-group accordion" id="Feedback-@f.ID">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h5 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#Feedback-@f.ID" href="#feedback-@f.ID">@f.SubjectFB</a>
+                            </h5>
+                        </div>
+                        <div id="feedback-@f.ID" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                @f.Message
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            }
+        </div>
+
+<!-- col-lg-6 end here -->
+</div>
+</div>

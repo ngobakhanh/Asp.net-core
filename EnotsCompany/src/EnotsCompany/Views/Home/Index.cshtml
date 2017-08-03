@@ -1,0 +1,236 @@
+﻿@using EnotsCompany.Controllers
+@model EnotsCompany.Models.SupplierModel
+<div id="all">
+
+    <div id="content">
+
+        <div class="container">
+            <div class="col-md-12">
+                <div id="main-slider">
+                    @if (ViewBag.sliders != null)
+                    {
+                        foreach (var s in (List<ServiceReference_Slider.Slider>) ViewBag.sliders)
+                        {
+                            <div class="item">
+                                <img src="~/images/@s.ImageSlider" alt="" class="img-responsive" width="1200" height="563">
+                            </div>
+                        }
+
+                    }
+                    
+                    @*<div class="item">
+                        <img class="img-responsive" src="~/client/img/main-slider1.jpg" alt="" width="1200" height="563">
+                    </div>
+                    <div class="item">
+                        <img class="img-responsive" src="~/client/img/main-slider3.jpg" alt="" width="1200" height="563">
+                    </div>*@
+                </div>
+                <!-- /#main-slider -->
+            </div>
+        </div>
+
+        <!-- *** ADVANTAGES HOMEPAGE ***
+        _________________________________________________________ -->
+        <div id="advantages">
+
+            <div class="container">
+                <div class="same-height-row">
+                    <div class="col-sm-4">
+                        <div class="box same-height clickable">
+                            <div class="icon">
+                                <i class="fa fa-heart"></i>
+                            </div>
+
+                            <h3><a href="#">We love our customers</a></h3>
+                            <p>We are known to provide best possible service ever</p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="box same-height clickable">
+                            <div class="icon">
+                                <i class="fa fa-tags"></i>
+                            </div>
+
+                            <h3><a href="#">Best prices</a></h3>
+                            <p>You can check that the height of the boxes adjust when longer text like this one is used in one of them.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="box same-height clickable">
+                            <div class="icon">
+                                <i class="fa fa-thumbs-up"></i>
+                            </div>
+
+                            <h3><a href="#">100% satisfaction guaranteed</a></h3>
+                            <p>Free returns on everything for 3 months.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container -->
+
+        </div>
+        <!-- /#advantages -->
+        <!-- *** ADVANTAGES END *** -->
+        <!-- *** HOT PRODUCT SLIDESHOW ***
+        _________________________________________________________ -->
+        <div id="hot">
+
+            <div class="box">
+                <div class="container">
+                    <div class="col-md-12">
+                        <h2>New products</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="product-slider">
+                </div>
+            </div>
+            <!-- /.container -->
+
+        </div>
+
+        <div class="box text-center" data-animate="fadeInUp">
+            <div class="container">
+                <div class="col-md-12">
+                    <h3 class="text-uppercase">Top Selected Suppliers</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-reviews broun-block">
+            <div class="container">
+                <div class="row">
+                    <div id="carousel-reviews" class="carousel slide" data-ride="carousel">
+
+                        <div class="carousel-inner">
+                            @{
+                                int count = 1;
+                                int item = 1;
+                            }
+                            <div class="item active">
+                                @foreach (var s in Model.suppliers)
+                                {
+                                    if (count < 4)
+                                    {
+                                        <div class="col-md-4 col-sm-6">
+                                            <div class="block-text rel zmin">
+                                                <a title="avatar" asp-action="SupplierDetail" asp-route-id="@s.SupplierId">@s.CompanyName</a>
+                                                <div class="mark">Orders: <span class="rating-input">@await HomeController.numberInvoice(s.SupplierId)</span></div>
+                                                <p>@s.Address</p>
+                                                <ins class="ab zmin sprite sprite-i-triangle block"></ins>
+                                            </div>
+                                            <div class="person-text rel">
+
+                                                <a title="Company name" asp-action="SupplierDetail" asp-route-id="@s.SupplierId">
+                                                    <img src="~/images/@s.Avatar" class="img-circle" width="80px" />
+                                                </a>
+                                                <a title="Company name" asp-action="SupplierDetail" asp-route-id="@s.SupplierId">@s.Name</a>
+                                                <i>@s.Country</i>
+                                            </div>
+                                        </div>
+                                        count++;
+                                    }
+                                }
+                            </div>
+                            <div class="item">
+                                @foreach (var s in Model.suppliers)
+                                {
+                                    if (item > 3)
+                                    {
+                                        <div class="col-md-4 col-sm-6">
+                                            <div class="block-text rel zmin">
+                                                <a title="avatar" asp-action="SupplierDetail" asp-route-id="@s.SupplierId">@s.CompanyName</a>
+                                                <div class="mark">Orders: <span class="rating-input">@await HomeController.numberInvoice(s.SupplierId)</span></div>
+                                                <p>@s.Address</p>
+                                                <ins class="ab zmin sprite sprite-i-triangle block"></ins>
+                                            </div>
+                                            <div class="person-text rel">
+                                                <a title="Company name" asp-action="SupplierDetail" asp-route-id="@s.SupplierId">
+                                                    <img src="~/images/@s.Avatar" class="img-circle" width="80px" />
+                                                </a>
+                                                <a title="Company name" asp-action="SupplierDetail" asp-route-id="@s.SupplierId">@s.Name</a>
+                                                <i>@s.Country</i>
+                                            </div>
+                                        </div>
+                                    }
+                                    item++;
+                                }
+                            </div>
+                        </div>
+                        <a class="left carousel-control" href="#carousel-reviews" role="button" data-slide="prev">
+                            <span class="fa fa-chevron-left"></span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-reviews" role="button" data-slide="next">
+                            <span class="fa fa-chevron-right"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="box text-center" data-animate="fadeInUp">
+            <div class="container">
+                <div class="col-md-12">
+                    <h3 class="text-uppercase">My Recently Viewed products</h3>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row same-height-row">
+                @*<div class="col-md-3 col-sm-6">
+                    <div class="box same-height">
+                        <h3>Recently Viewed Item</h3>
+                    </div>
+                </div>*@
+                @{
+                var recentProductList = ViewData["RecentProductList"] as List<EnotsCompany.Models.RecentViewedItem>;
+                }
+                @foreach (var recentProduct in recentProductList.OrderByDescending(t => t.LastVisited))
+            {
+                    @*<p>@recentProduct.ItemName (id: @recentProduct.ItemName)</p>*@
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="product same-height">
+                            <div class="flip-container">
+                                <div class="flipper">
+                                    <div class="front">
+                                        <a href="/home/itemdetail?id=@recentProduct.ItemId&cateId=@recentProduct.CategoryId">
+
+                                            <img src="~/images/@recentProduct.ImageItem" alt="" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="back">
+                                        <a href="/home/itemdetail?id=@recentProduct.ItemId&cateId=@recentProduct.CategoryId">
+                                            <img src="~/images/@recentProduct.ImageItem" alt="" class="img-responsive">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="/home/itemdetail?id=@recentProduct.ItemId&cateId=@recentProduct.CategoryId" class="invisible">
+                                <img src="~/images/@recentProduct.ImageItem" alt="" class="img-responsive">
+                            </a>
+                            <div class="text">
+                                <h3><a href="/home/itemdetail?id=@recentProduct.ItemId&cateId=@recentProduct.CategoryId">@recentProduct.ItemName</a></h3>
+                                <p class="price">US $@recentProduct.Price/@recentProduct.UnitName</p>
+                            </div>
+                        </div>
+                        <!-- /.product -->
+                    </div>
+            }
+
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+</div>

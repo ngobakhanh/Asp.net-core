@@ -1,0 +1,392 @@
+﻿@*@using ServiceReference_Supplier;*@
+@using EnotsCompany.Controllers
+@using EnotsCompany.Models.AccountViewModels
+@using EnotsCompany.Models
+@using System.Collections.Generic
+@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Http.Authentication
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject EnotsCompany.Services.HomeLayoutService service;
+
+@{
+    HomeController hc = new HomeController();
+    ServiceReference_Category.Category[] lst_itemParent = await hc.getAllCategory();
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="robots" content="all,follow">
+    <meta name="googlebot" content="index,follow,snippet,archive">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="NIIT 2017">
+    <meta name="author" content="Ngo Ba Khanh">
+    <meta name="keywords" content="">
+
+    <title>
+        Enots Company
+    </title>
+
+    <meta name="keywords" content="">
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100' rel='stylesheet' type='text/css'>
+
+    <!-- styles -->
+    <link href="~/client/css/font-awesome.css" rel="stylesheet">
+    <link href="~/client/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/client/css/animate.min.css" rel="stylesheet">
+    <link href="~/client/css/owl.carousel.css" rel="stylesheet">
+    <link href="~/client/css/owl.theme.css" rel="stylesheet">
+
+    <!-- theme stylesheet -->
+    <link href="~/client/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+    <!-- your stylesheet with modifications -->
+    <link href="~/client/css/custom.css" rel="stylesheet">
+
+    @*<script src="~/client/js/respond.min.js"></script>*@
+
+    <link rel="shortcut icon" href="favicon.png">
+</head>
+
+<body>
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.10&appId=810862039074504";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+
+    <a href="#" id="back-to-top" title="Back to top"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+    <div id="top">
+        <div class="container">
+            <div class="col-md-6 offer" data-animate="fadeInDown">
+                <a asp-controller="Home" asp-action="Index" class="btn btn-success btn-sm" data-animate-hover="shake">Welcome to Enots Company</a>
+            </div>
+            <div class="col-md-6" data-animate="fadeInDown">
+
+                <ul class="menu">
+                    @*<li>
+                            <a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
+                        </li>*@
+                    @await Html.PartialAsync("~/Views/Home/_LoginPartial.cshtml")
+                    @*<li>
+                            <a href="#">Recently viewed</a>
+                        </li>*@
+                    <li>
+                        <a href="http://10.107.14.95/IISHosting/EnotsCompany/RSSService.svc/ViewProducts">RSS <i class="fa fa-rss-square" aria-hidden="true"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        @*<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="Login">Customer login</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form asp-controller="Account" asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
+
+                                <div asp-validation-summary="All" class="text-danger"></div>
+                                <div class="form-group">
+                                    <input id="Email" name="Email" class="form-control"  placeholder="email">
+                                    @*<span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <input id="Password" name="Password" class="form-control" placeholder="password">
+                                    @*<span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+
+                                <p class="text-center">
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-sign-in"></i> Log in</button>
+                                </p>
+
+                            </form>
+
+                            <p class="text-center text-muted">Not registered yet?</p>
+                            <p class="text-center text-muted"><a href="#"><strong>Register now</strong></a>! It is easy and done in 1&nbsp;minute and gives you access to special discounts and much more!</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+
+    </div>
+
+    <!-- *** TOP BAR END *** -->
+    <!-- *** NAVBAR ***
+    _________________________________________________________ -->
+
+    <div class="navbar navbar-default yamm" role="navigation" id="navbar">
+        <div class="container">
+            <div class="navbar-header">
+
+                <a class="navbar-brand home" asp-controller="Home" asp-action="Index" data-animate-hover="bounce">
+                    <img src="~/client/img/logo.png" alt="Obaju logo" class="hidden-xs">
+                    @*<img src="~/client/img/rs_1logo_enots small.png" alt="Obaju logo" class="visible-xs"><span class="sr-only">Enots - go to homepage</span>*@
+                </a>
+                <div class="navbar-buttons">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
+                        <span class="sr-only">Toggle navigation</span>
+                        <i class="fa fa-align-justify"></i>
+                    </button>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#search">
+                        <span class="sr-only">Toggle search</span>
+                        <i class="fa fa-search"></i>
+                    </button>
+                    <a class="btn btn-default navbar-toggle" asp-controller="Wholesaler" asp-action="Inquiry">
+                        <i class="glyphicon glyphicon-user"></i>  My Account
+                    </a>
+                </div>
+            </div>
+
+            <!--/.navbar-header -->
+
+            <div class="navbar-collapse collapse" id="navigation">
+
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="active">
+                        <a asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="dropdown yamm-fw">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Category <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <div class="yamm-content">
+                                    <div class="row">
+                                        @foreach (var item in lst_itemParent)
+                                        {
+                                            if (item.ParentId == null && item.StatusCate == "Enable")
+                                            {
+                                                <div class="col-sm-3">
+                                                    <h5>
+                                                        <a asp-controller="Home" asp-action="Category" asp-route-categoryId="@item.CategoryId">@item.CategoryName</a>
+                                                    </h5>
+                                                    @foreach (var sub in lst_itemParent)
+                                                    {
+                                                        if (sub.ParentId == item.CategoryId && item.StatusCate == "Enable")
+                                                        {
+                                                            <ul>
+                                                                <li>
+                                                                    <a asp-controller="Home" asp-action="Category" asp-route-categoryId="@sub.CategoryId">@sub.CategoryName</a>
+                                                                </li>
+                                                            </ul>
+                                                        }
+                                                    }
+                                                </div>
+                                            }
+                                        }
+
+                                    </div>
+                                </div>
+                                <!-- /.yamm-content -->
+                            </li>
+                        </ul>
+                    </li>
+
+                    @*<li class="dropdown yamm-fw">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Supplier <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <div class="yamm-content">
+                                        <div class="row">
+                                            @foreach (var sup in lst_supbyCate)
+                                            {
+
+                                                <div class="col-sm-3">
+                                                    <h5><a href="">@sup.CompanyName</a></h5>
+                                                    @*<h5>@sup.Category.CategoryName</h5>
+                                                        <h5>@sup.Category.SupplierId</h5>
+                                                    <ul>
+                                                        <li>
+                                                            <a href="#">@sup.CompanyName</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+
+                                </li>
+                            </ul>
+                        </li>*@
+
+                    <li>
+                        <a href="/Home/Article">Article</a>
+                    </li>
+
+
+                </ul>
+
+            </div>
+            <!--/.nav-collapse -->
+
+            <div class="navbar-buttons">
+
+                <div class="navbar-collapse collapse right" id="basket-overview">
+                    <a asp-controller="Wholesaler" asp-action="Inquiry" class="btn btn-primary navbar-btn"><i class="fa fa-user"></i><span class="hidden-sm">My Account</span></a>
+                    <span class="badge" id="message"></span>
+                </div>
+                <!--/.nav-collapse -->
+
+                <div class="navbar-collapse collapse right" id="search-not-mobile">
+                    <button type="button" class="btn navbar-btn btn-primary" data-toggle="collapse" data-target="#search">
+                        <span class="sr-only">Toggle search</span>
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="collapse clearfix" id="search">
+                <form asp-controller="Home" asp-action="Category" method="get" class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="hidden" name="categoryId" value="@(ViewBag.CategoryId == null ? "1":ViewBag.CategoryId)" />
+                        <input type="text" class="form-control" placeholder="Search" name="searchString" value="@ViewData["CurrentFilter"]">
+                        @*<input type="text" class="hidden" name="page" value="@ViewBag.page" />*@
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+                </form>
+
+            </div>
+            <!--/.nav-collapse -->
+
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /#navbar -->
+    <!-- *** NAVBAR END *** -->
+    @RenderBody()
+
+    <!-- /#content -->
+    <!-- *** FOOTER ***
+    _________________________________________________________ -->
+    <div id="footer" data-animate="fadeInUp">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <h4>Conatact</h4>
+
+                    <ul>
+                        <li><i class="fa fa-map-marker" aria-hidden="true"></i> 93 Cao thắng, Quận 3 <span>Thành phố Hồ Chí Minh.</span></li>
+                        <li><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="mailto:info@example.com"> info@example.com</a></li>
+                        <li><i class="fa fa-phone-square" aria-hidden="true"></i> +1234 567 567</li>
+                    </ul>
+                    <hr>
+                    <h4>Payment Methods</h4>
+
+                    <img src="~/images/payments.png" />
+                    <hr class="hidden-md hidden-lg hidden-sm">
+
+                </div>
+
+
+                <div class="col-md-4 col-sm-6">
+
+                    <h4>Our location</h4>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.5094619936576!2d106.67692811435033!3d10.772237692324369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f218ed30895%3A0xd7ff822aa9ef6e94!2sHoa+Sen+University!5e0!3m2!1sen!2sjo!4v1500896438576" width="350" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+                    <hr class="hidden-md hidden-lg">
+
+                </div>
+                <!-- /.col-md-3 -->
+
+
+
+                <div class="col-md-4 col-sm-6">
+
+
+                    <h4>Get the news</h4>
+
+                    <p class="text-muted">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+
+                    <form>
+                        <div class="input-group">
+
+                            <input type="text" class="form-control">
+
+                            <span class="input-group-btn">
+
+                                <button class="btn btn-primary" type="button">Subscribe!</button>
+
+                            </span>
+
+                        </div>
+                    </form>
+
+                    <hr>
+
+                    <h4>Stay in touch</h4>
+
+                    <p class="social">
+                        <a href="#" class="facebook external" data-animate-hover="shake"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="twitter external" data-animate-hover="shake"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="instagram external" data-animate-hover="shake"><i class="fa fa-instagram"></i></a>
+                        <a href="#" class="gplus external" data-animate-hover="shake"><i class="fa fa-google-plus"></i></a>
+                        <a href="#" class="email external" data-animate-hover="shake"><i class="fa fa-envelope"></i></a>
+                    </p>
+
+
+                </div>
+                <!-- /.col-md-3 -->
+
+            </div>
+            <!-- /.row -->
+
+        </div>
+        <!-- /.container -->
+    </div>
+
+
+    <!-- *** SCRIPTS TO INCLUDE ***
+    _________________________________________________________ -->
+    <script src="~/client/js/jquery-1.11.0.min.js"></script>
+    <script src="/client/js/bootstrap.min.js"></script>
+    <script src="/client/js/jquery.cookie.js"></script>
+    <script src="/client/js/waypoints.min.js"></script>
+    <script src="/client/js/modernizr.js"></script>
+    <script src="/client/js/bootstrap-hover-dropdown.js"></script>
+    <script src="/client/js/owl.carousel.min.js"></script>
+    <script src="/client/js/front.js"></script>
+    <script src="https://cdn.ckeditor.com/4.7.0/basic/ckeditor.js"></script>
+    <script src="/client/js/custom.js"></script>
+    <script src="/client/js/notify.min.js"></script>
+    <script src="/client/js/enots.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxOXFoTUTysuqfH7niStKxuL6NQds9q6s&callback=initMap"></script>
+
+    <script>
+        function initialize() {
+            var mapOptions = {
+                zoom: 17,
+                center: new google.maps.LatLng(10.772502, 106.679133),
+                mapTypeId: google.maps.MapTypeId.ROAD,
+                scrollwheel: false
+            }
+            var map = new google.maps.Map(document.getElementById('map'),
+                mapOptions);
+
+            var myLatLng = new google.maps.LatLng(10.772502, 106.679133);
+            var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map
+            });
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>

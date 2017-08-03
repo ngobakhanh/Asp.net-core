@@ -1,0 +1,189 @@
+﻿@using EnotsCompany.Controllers
+@using EnotsCompany.Data;
+@using EnotsCompany.Models;
+@using Microsoft.AspNetCore.Identity;
+@model ServiceReference_PurchaseOrder.PurchaseOrder[]
+
+@{
+    Layout = "~/Views/Home/_Layout.cshtml";
+    //WholesalerController ws = new WholesalerController();
+    ServiceReference_PurchaseOrderDetail.PurchaseOrderDetailsServiceClient pdt = new ServiceReference_PurchaseOrderDetail.PurchaseOrderDetailsServiceClient();
+    var count = 0;
+}
+
+<div id="all">
+
+    <div id="content">
+        <div class="container">
+
+            <div class="col-md-12">
+
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>My orders</li>
+                </ul>
+
+            </div>
+
+            <div class="col-md-3">
+                @Html.Partial("~/Views/Wholesaler/_LeftMenu.cshtml")
+            </div>
+
+            <div class="col-md-9" id="customer-orders">
+                <div class="box">
+                    <h1>My Inquires</h1>
+
+                    <p class="lead">Your inquiries on one place.</p>
+                    <p class="text-muted">If you have any questions, please feel free to <a asp-controller="home" asp-action="Contact">contact us</a>, our customer service center is working for you 24/7.</p>
+
+                    <hr>
+
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Inquiry</th>
+                                    <th>Date</th>
+                                    <th>Comment</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var p in Model)
+                                {
+                                    if (p.ReplyId == null)
+                                    {
+
+
+                                        <tr class="inquiry">
+                                            <th>@p.PurchaseOrderId</th>
+                                            <td>@p.InquiriedData.Value.ToString("dd-MM-yyyy")</td>
+                                            <td>
+                                                <p class="hidden" id="cmt1_@count">@p.Comment</p>
+                                                <p id="cmt_@count"></p>
+                                            </td>
+                                            <td>
+                                                <span class="label label-info" id="status">@p.StatusPurchase</span>
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn btn-primary btn-sm view-detail-order" data-row="@p.PurchaseOrderId">View</a>
+                                            </td>
+                                        </tr>
+
+                                        <tr id="row-@p.PurchaseOrderId" style="display:none;">
+                                            <td colspan="5">
+                                                <table class="table" style="background:#e0e0e0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th colspan="2">Product</th>
+                                                            <th>Quantity</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+
+                                                        @foreach (var pd in p.PurchaseOrderDetails)
+                                                        {
+                                                            ServiceReference_Item.Item item = await WholesalerController.getValueById(pd.ItemId);
+                                                            <tr>
+                                                                <td style="width:90px;vertical-align: top;">
+                                                                    <a href="#">
+                                                                        <img src="~/images/@item.ImageItem" alt="" class="img-responsive">
+                                                                    </a>
+                                                                </td>
+                                                                <td>
+                                                                    <a asp-controller="Home" asp-action="ItemDetail" asp-route-id="@pd.ItemId">@item.ItemName</a>
+                                                                </td>
+                                                                <td>@pd.Quantity</td>
+                                                            </tr>
+                                                        }
+                                                    </tbody>
+
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        count++;
+                                        var lst_reply = await WholesalerController.getListReply(p.PurchaseOrderId);
+                                        if (lst_reply != null)
+                                        {
+                                            @foreach (var r in lst_reply)
+                                            {
+                                                <tr class="inquiry">
+                                                    <th>- @r.ReplyId</th>
+                                                    <td>@r.InquiriedData.Value.ToString("dd-MM-yyyy")</td>
+                                                    <td>
+                                                        <p class="hidden" id="cmt1_@count">@r.Comment</p>
+                                                        <p id="cmt_@count"></p>
+                                                    </td>
+                                                    <td>
+                                                        <span class="label label-info status_@r.PurchaseOrderId">@r.StatusPurchase</span>
+                                                    </td>
+                                                    <td>
+                                                        <a href="#" class="btn btn-primary btn-sm view-detail-order" data-row="@r.PurchaseOrderId">View</a>
+                                                    </td>
+                                                </tr>
+
+                                                <tr id="row-@r.PurchaseOrderId" style="display:none;">
+                                                    <td colspan="5">
+                                                        <table class="table" style="background:#e0e0e0">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th colspan="2">Product</th>
+                                                                    <th>Quantity</th>
+                                                                    <th>Price</th>
+                                                                    <th>Discount</th>
+                                                                    <th>Tax</th>
+                                                                    <th>Total</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @{
+                                                                    ServiceReference_PurchaseOrderDetail.PurchaseOrderDetail[] replies = await pdt.findPurchaseOrderDetailbypIdAsync(r.ReplyId);
+                                                                }
+                                                                @foreach (var pd in replies)
+                                                                {
+                                                                    ServiceReference_Item.Item item = await WholesalerController.getValueById(pd.ItemId);
+                                                                    <tr>
+                                                                        <td style="vertical-align: top;">
+                                                                            <a href="#">
+                                                                                <img src="~/images/@item.ImageItem" alt="" width="80px" class="img-responsive">
+                                                                            </a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a asp-controller="Home" asp-action="ItemDetail" asp-route-id="@pd.ItemId">@item.ItemName</a>
+                                                                        </td>
+                                                                        <td>@pd.Quantity</td>
+                                                                        <td>@pd.Price</td>
+                                                                        <td>@pd.Discount</td>
+                                                                        <td>@pd.Tax</td>
+                                                                        <td>@pd.LineTotal</td>
+                                                                    </tr>
+                                                                }
+                                                                <tr>
+                                                                    <td colspan="6"></td>
+                                                                    <td>
+                                                                        <button id="confirm" type="button" class="btn btn-info" data-row="@r.PurchaseOrderId"><i class="fa fa-check-circle"></i> Confirm</button>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                count++;
+                                            }
+                                        }
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /#content -->
+</div>

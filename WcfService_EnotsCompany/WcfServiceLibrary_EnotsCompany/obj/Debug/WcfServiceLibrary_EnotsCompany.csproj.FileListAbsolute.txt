@@ -1,0 +1,157 @@
+G:\EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.csprojResolveAssemblyReference.cache
+G:\EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.dll.config
+G:\EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.dll
+G:\EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.pdb
+G:\EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.dll
+G:\EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.SqlServer.dll
+G:\EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.xml
+G:\EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.SqlServer.xml
+G:\EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.dll
+G:\EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.pdb
+G:\EnotsCompany - Copy\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.dll.config
+G:\EnotsCompany - Copy\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.dll
+G:\EnotsCompany - Copy\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.pdb
+G:\EnotsCompany - Copy\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.dll
+G:\EnotsCompany - Copy\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.SqlServer.dll
+G:\EnotsCompany - Copy\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.xml
+G:\EnotsCompany - Copy\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.SqlServer.xml
+G:\EnotsCompany - Copy\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.csprojResolveAssemblyReference.cache
+G:\EnotsCompany - Copy\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.dll
+G:\EnotsCompany - Copy\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.pdb
+G:\EnotsCompany - Copy - Copy\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.dll.config
+G:\EnotsCompany - Copy - Copy\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.dll
+G:\EnotsCompany - Copy - Copy\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.pdb
+G:\EnotsCompany - Copy - Copy\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.dll
+G:\EnotsCompany - Copy - Copy\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.SqlServer.dll
+G:\EnotsCompany - Copy - Copy\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.xml
+G:\EnotsCompany - Copy - Copy\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.SqlServer.xml
+G:\EnotsCompany - Copy - Copy\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.csprojResolveAssemblyReference.cache
+G:\EnotsCompany - Copy - Copy\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.dll
+G:\EnotsCompany - Copy - Copy\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.pdb
+G:\WcfService_EnotsCompany - Copy\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.dll
+G:\WcfService_EnotsCompany - Copy\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.pdb
+G:\WcfService_EnotsCompany - Copy\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.dll.config
+G:\WcfService_EnotsCompany - Copy\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.dll
+G:\WcfService_EnotsCompany - Copy\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.pdb
+G:\WcfService_EnotsCompany - Copy\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.dll
+G:\WcfService_EnotsCompany - Copy\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.SqlServer.dll
+G:\WcfService_EnotsCompany - Copy\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.xml
+G:\WcfService_EnotsCompany - Copy\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Administrator\Desktop\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.dll.config
+C:\Users\Administrator\Desktop\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.dll
+C:\Users\Administrator\Desktop\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.pdb
+C:\Users\Administrator\Desktop\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.dll
+C:\Users\Administrator\Desktop\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Administrator\Desktop\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\Desktop\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Administrator\Desktop\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.dll
+C:\Users\Administrator\Desktop\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.pdb
+C:\Users\Chinh\Desktop\New folder\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.dll.config
+C:\Users\Chinh\Desktop\New folder\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.dll
+C:\Users\Chinh\Desktop\New folder\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.pdb
+C:\Users\Chinh\Desktop\New folder\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.dll
+C:\Users\Chinh\Desktop\New folder\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Chinh\Desktop\New folder\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.xml
+C:\Users\Chinh\Desktop\New folder\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Chinh\Desktop\New folder\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.csprojResolveAssemblyReference.cache
+C:\Users\Chinh\Desktop\New folder\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.dll
+C:\Users\Chinh\Desktop\New folder\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.pdb
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.dll.config
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.dll
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.pdb
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.dll
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.xml
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.dll
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.pdb
+C:\Users\Administrator\Desktop\Project\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.dll.config
+C:\Users\Administrator\Desktop\Project\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.dll
+C:\Users\Administrator\Desktop\Project\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.pdb
+C:\Users\Administrator\Desktop\Project\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.dll
+C:\Users\Administrator\Desktop\Project\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Administrator\Desktop\Project\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\Desktop\Project\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Administrator\Desktop\Project\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.dll
+C:\Users\Administrator\Desktop\Project\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.pdb
+C:\Users\Administrator\Desktop\Project\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.csprojResolveAssemblyReference.cache
+E:\Project\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.dll.config
+E:\Project\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.dll
+E:\Project\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.pdb
+E:\Project\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.dll
+E:\Project\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.SqlServer.dll
+E:\Project\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.xml
+E:\Project\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.SqlServer.xml
+E:\Project\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.dll
+E:\Project\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.pdb
+E:\Project\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\Admin Verson1\Admin\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.dll.config
+C:\Users\Administrator\Desktop\Admin Verson1\Admin\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.dll
+C:\Users\Administrator\Desktop\Admin Verson1\Admin\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.pdb
+C:\Users\Administrator\Desktop\Admin Verson1\Admin\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.dll
+C:\Users\Administrator\Desktop\Admin Verson1\Admin\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Administrator\Desktop\Admin Verson1\Admin\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\Desktop\Admin Verson1\Admin\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Administrator\Desktop\Admin Verson1\Admin\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\Admin Verson1\Admin\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.dll
+C:\Users\Administrator\Desktop\Admin Verson1\Admin\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.pdb
+C:\Users\Administrator\Desktop\EnotCompany Version1\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.dll.config
+C:\Users\Administrator\Desktop\EnotCompany Version1\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.dll
+C:\Users\Administrator\Desktop\EnotCompany Version1\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.pdb
+C:\Users\Administrator\Desktop\EnotCompany Version1\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.dll
+C:\Users\Administrator\Desktop\EnotCompany Version1\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Administrator\Desktop\EnotCompany Version1\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\Desktop\EnotCompany Version1\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Administrator\Desktop\EnotCompany Version1\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.dll
+C:\Users\Administrator\Desktop\EnotCompany Version1\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.pdb
+C:\Users\Administrator\Desktop\EnotCompany Version1\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\EnotsCompany Version2\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.dll.config
+C:\Users\Administrator\Desktop\EnotsCompany Version2\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.dll
+C:\Users\Administrator\Desktop\EnotsCompany Version2\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.pdb
+C:\Users\Administrator\Desktop\EnotsCompany Version2\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.dll
+C:\Users\Administrator\Desktop\EnotsCompany Version2\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Administrator\Desktop\EnotsCompany Version2\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\Desktop\EnotsCompany Version2\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Administrator\Desktop\EnotsCompany Version2\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\EnotsCompany Version2\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.dll
+C:\Users\Administrator\Desktop\EnotsCompany Version2\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.pdb
+C:\Users\Administrator\Desktop\EnotsCompany v3\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.dll.config
+C:\Users\Administrator\Desktop\EnotsCompany v3\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.dll
+C:\Users\Administrator\Desktop\EnotsCompany v3\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.pdb
+C:\Users\Administrator\Desktop\EnotsCompany v3\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.dll
+C:\Users\Administrator\Desktop\EnotsCompany v3\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Administrator\Desktop\EnotsCompany v3\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\Desktop\EnotsCompany v3\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Administrator\Desktop\EnotsCompany v3\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\EnotsCompany v3\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.dll
+C:\Users\Administrator\Desktop\EnotsCompany v3\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.pdb
+E:\Project\Project_2562017\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.dll.config
+E:\Project\Project_2562017\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.dll
+E:\Project\Project_2562017\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.pdb
+E:\Project\Project_2562017\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.dll
+E:\Project\Project_2562017\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.SqlServer.dll
+E:\Project\Project_2562017\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.xml
+E:\Project\Project_2562017\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.SqlServer.xml
+E:\Project\Project_2562017\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.dll
+E:\Project\Project_2562017\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.pdb
+C:\Users\Administrator\Google Drive\Project_2562017\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.dll.config
+C:\Users\Administrator\Google Drive\Project_2562017\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.dll
+C:\Users\Administrator\Google Drive\Project_2562017\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.pdb
+C:\Users\Administrator\Google Drive\Project_2562017\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.dll
+C:\Users\Administrator\Google Drive\Project_2562017\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Administrator\Google Drive\Project_2562017\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\Google Drive\Project_2562017\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Administrator\Google Drive\Project_2562017\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Google Drive\Project_2562017\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.dll
+C:\Users\Administrator\Google Drive\Project_2562017\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.pdb
+E:\Project\Project_2562017\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.csprojResolveAssemblyReference.cache
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.dll.config
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.dll
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\WcfServiceLibrary_EnotsCompany.pdb
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.dll
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.xml
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.dll
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Debug\WcfServiceLibrary_EnotsCompany.pdb

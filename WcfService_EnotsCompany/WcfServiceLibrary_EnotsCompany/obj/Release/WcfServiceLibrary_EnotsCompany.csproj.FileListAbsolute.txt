@@ -1,0 +1,18 @@
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Release\WcfServiceLibrary_EnotsCompany.dll.config
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Release\WcfServiceLibrary_EnotsCompany.dll
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Release\WcfServiceLibrary_EnotsCompany.pdb
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Release\EntityFramework.dll
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Release\EntityFramework.xml
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Release\WcfServiceLibrary_EnotsCompany.dll
+C:\Users\Chinh\Desktop\Project\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Release\WcfServiceLibrary_EnotsCompany.pdb
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Release\WcfServiceLibrary_EnotsCompany.dll
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Release\WcfServiceLibrary_EnotsCompany.pdb
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Release\EntityFramework.dll
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Release\EntityFramework.xml
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Release\WcfServiceLibrary_EnotsCompany.dll
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\obj\Release\WcfServiceLibrary_EnotsCompany.pdb
+C:\Users\Chinh\Google Drive\WcfService_EnotsCompany\WcfServiceLibrary_EnotsCompany\bin\Release\WcfServiceLibrary_EnotsCompany.dll.config

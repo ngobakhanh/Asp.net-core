@@ -1,0 +1,62 @@
+﻿<div class="page-content-inner">
+    <!-- Start .page-content-inner -->
+    <div id="page-header" class="clearfix">
+        <div class="page-header">
+            <h2>Employees</h2>
+            @*<span class="txt">Load data from api or dynamic via ajax</span>*@
+        </div>
+        <div class="header-stats">
+            <a asp-action="EmployeeCreate" asp-controller="Admin"><i class="btn btn-info fa fa-plus"></i></a>
+        </div>
+    </div>
+    <div class="@(ViewBag.flag == "success" ? "alert alert-success fade in" : ViewBag.flag == "error" ? "alert alert-danger fade in" : "hidden")">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <i class="fa fa-check alert-icon "></i>
+        @ViewBag.message
+    </div>
+    <!-- Start .row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <!-- col-lg-12 start here -->
+            <div class="panel panel-default plain toggle">
+                <!-- Start .panel -->
+                <div class="panel-heading">
+                    <h4 class="panel-title">List of employees</h4>
+                </div>
+                <div class="panel-body">
+                    <table id="basic-datatables" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>Full Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Address</th>
+                                <th>Status</th>
+                                <th style="text-align:right">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Fullname</td>
+                                    <td>@item.Email</td>
+                                    <td>@item.Phone</td>
+                                    <td>@item.AddressEmp</td>
+                                    <td>@item.StatusEmp</td>
+                                    <td>
+                                        <a asp-action="EmployeeDelete" asp-controller="Admin" asp-route-id="@item.EmployeeId"><i class="btn btn-info fa fa-trash-o pull-right"></i></a>
+                                        <a asp-action="EmployeeEdit" asp-controller="Admin" asp-route-id="@item.EmployeeId"><i class="btn btn-info fa fa-edit pull-right"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- End .panel -->
+        </div>
+        <!-- col-lg-12 end here -->
+    </div>
+    <!-- End .row -->
+</div>

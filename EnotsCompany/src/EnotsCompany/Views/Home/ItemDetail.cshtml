@@ -1,0 +1,238 @@
+﻿@model EnotsCompany.Models.CategoryModel
+
+<div id="all">
+    <div id="content">
+        <div class="container">
+
+            <div class="col-md-12">
+
+
+            </div>
+
+
+            <div class="col-md-12">
+
+                <div class="row" id="productMain">
+
+                    <div class="col-sm-5">
+
+                        <div id="mainImage">
+                            <img src="~/images/@Model.ItemById.ImageItem" alt="" class="img-responsive">
+                        </div>
+
+                    </div>
+
+                    <div class="col-sm-7">
+                        <div class="box">
+                            <h1 class="text-center">@Model.ItemById.ItemName</h1>
+                            <p class="goToDescription">
+                                <a href="#details" class="scroll-to">Scroll to product details, faqq & feedback and company info</a>
+                            </p>
+                            <p class="price">
+                                <label>US $@Model.ItemById.Price/@Model.ItemById.Unit.UnitName</label> |
+                                <span>@Model.ItemById.MinQuantity @Model.ItemById.Unit.UnitName (Min. Order)</span>
+                            </p>
+
+                            <p class="text-center buttons">
+                                @*<a href="#" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Start Order</a>*@
+                                <a asp-controller="Wholesaler" asp-action="ContactSupplier" asp-route-itemId="@ViewBag.ItemId" class="btn btn-primary"><i class="fa fa-envelope-o"></i> Contact Supplier</a>
+                            </p>
+
+
+                        </div>
+
+                        <div class="row" id="thumbs">
+                            @{
+                                try
+                                {
+                                    string[] items = Model.ItemById.MoreImage.TrimEnd(',').Split(',');
+                                    if (items != null)
+                                    {
+
+                                        foreach (var item in items)
+                                        {
+                                            <div class="col-xs-3">
+                                                <a href="~/images/@item" class="thumb">
+                                                    <img src="~/images/@item" alt="" class="img-responsive">
+                                                </a>
+                                            </div>
+                                        }
+                                    }
+
+                                }
+                                catch (Exception ex) { }
+                            }
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="box" id="details">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#home">Desciption</a></li>
+                        <li><a data-toggle="tab" href="#menu1">FAQ</a></li>
+                        <li><a data-toggle="tab" href="#menu2">Company Profile</a></li>
+                        <li><a data-toggle="tab" href="#menu3">Feedback</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div id="home" class="tab-pane fade in active">
+                            <h3>Description</h3>
+                            <p>Bảo hành: @Model.ItemById.Warranty</p>
+                            <p id="des-item" class="hidden">@Model.ItemById.DescriptionItem</p>
+                            <p id="description-item"></p>
+                        </div>
+                        <div id="menu1" class="tab-pane fade">
+                            @*<h3>FAQ</h3>*@
+                            <p id="f-item" class="hidden">@Model.ItemById.FAQ</p>
+                            <div id="faq-item"></div>
+                        </div>
+                        <div id="menu2" class="tab-pane fade">
+                            <h3>Company profile</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p>Business Type: @Model.ItemById.Supplier.BussinessType</p>
+                                    <p>Main Products: @Model.ItemById.Supplier.MainProduct</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>Location: @Model.ItemById.Supplier.Address</p>
+                                    <p>Total Employees: @Model.ItemById.Supplier.TotalEmployees</p>
+                                    <p>Year Established: @Model.ItemById.Supplier.YearEstablished</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="menu3" class="tab-pane fade">
+                            <h3>Feedbacks</h3>
+                            <div class="row" role="form">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-1">
+                                        <img src="~/images/no_avatar.png" class="img-rounded" width="60px" />
+                                    </label>
+                                    <div class="col-sm-11">
+                                        <textarea rows="5" cols="50" class="form-control" id="message" name="message"></textarea>
+                                        <input type="text" class="hidden" value="@Model.ItemById.ItemId" id="itemId" name="itemId" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-1 col-sm-10 ">
+                                        <button type="button" id="btn-feedback" class="btn btn-primary btn-feedback">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr/>
+                            <div class="list-feedback">
+                                @foreach (var f in Model.lst_feedback)
+                                {
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-1">
+                                                <img src="~/images/no_avatar.png" class="img-rounded" width="60px" />
+                                            </label>
+                                            <div class="col-sm-11">
+                                                <span class="text-name">@f.Wholesaler.Fullname</span>
+                                                <p class="text-message">@f.Message</p>
+                                                <span class="text-date">@f.ReceivedDate</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                }
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                        <h3>Send your message to this supplier</h3>
+                        <form id="contact-form">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">
+                                            To:
+                                        </label>
+                                        <input type="text" class="form-control" asp-for="@Model.ItemById.Supplier.CompanyName" placeholder="Enter name" required="required" />
+                                        <input type="text" class="hidden" id="itemId" value="@Model.ItemById.ItemId" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="quantity">
+                                            Quantity
+                                        </label>
+                                        <input type="number" class="form-control" id="quantity" value="@Model.ItemById.MinQuantity" placeholder="Enter quantity" required="required" />
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="quantity">
+                                            Unit
+                                        </label>
+                                        <select asp-for="@Model.ItemById.UnitId" asp-items="@(new SelectList(Model.listUnit,"UnitId","UnitName"))" class="form-control" required="required">
+                                            <option selected="">Choose One:</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">
+                                            Message
+                                        </label>
+                                        <textarea id="comment" name="comment" class="form-control" rows="9" cols="25" required="required"
+                                                  placeholder="Message"></textarea>
+                                    </div>
+
+
+                                </div>
+                                <div class="col-md-12">
+                                    <button style="float:right" type="button" id="sendInquiry" class="btn btn-primary"><i class="fa fa-envelope-o"></i> Send </button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+
+
+                <div class="row same-height-row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="box same-height">
+                            <h3>You may also like these products</h3>
+                        </div>
+                    </div>
+                    @foreach (var d in Model.listItemByCategory.Take(3))
+                    {
+                    <div class="col-md-3 col-sm-6">
+                        <div class="product same-height">
+                            <div class="flip-container">
+                                <div class="flipper">
+                                    <div class="front">
+                                        <a href="/home/itemdetail?id=@d.ItemId&cateId=@d.CategoryId">
+
+                                            <img src="~/images/@d.ImageItem" alt="" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="back">
+                                        <a href="/home/itemdetail?id=@d.ItemId&cateId=@d.CategoryId">
+                                            <img src="~/images/@d.ImageItem" alt="" class="img-responsive">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="/home/itemdetail?id=@d.ItemId&cateId=@d.CategoryId" class="invisible">
+                                <img src="~/images/@d.ImageItem" alt="" class="img-responsive">
+                            </a>
+                            <div class="text">
+                                <h3><a href="/home/itemdetail?id=@d.ItemId&cateId=@d.CategoryId">@d.ItemName</a></h3>
+                                <p class="price">US $@d.Price/@d.Unit.UnitName</p>
+                            </div>
+                        </div>
+                        <!-- /.product -->
+                    </div>
+                    }
+
+
+                </div>
+            </div>
+            <!-- /.col-md-9 -->
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /#content -->
+</div>

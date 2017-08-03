@@ -1,0 +1,593 @@
+﻿@model EnotsCompany.Models.InvoiceModel
+@using EnotsCompany.Controllers
+@using System.Globalization
+@{
+    ServiceReference_PurchaseOrderDetail.PurchaseOrderDetailsServiceClient pdt = new ServiceReference_PurchaseOrderDetail.PurchaseOrderDetailsServiceClient();
+    ServiceReference_Wholesaler.WholesalerServiceClient wc = new ServiceReference_Wholesaler.WholesalerServiceClient();
+    var count = 0;
+}
+
+
+<div class="page-content-inner">
+    <!-- .page-content-inner -->
+    <div id="page-header" class="clearfix">
+        <div class="page-header">
+            <h2>Total Account Value: $ @Model.Total </h2>
+            @*<span class="txt">Funds Available: £ 1,000 / $ 1,500</span>*@
+        </div>
+
+    </div>
+    <div class="row">
+        <!-- .row -->
+        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+            <!-- .col-md-3 -->
+            <div class="panel panel-info tile panelClose panelRefresh">
+                <!-- Start .panel -->
+                <div class="panel-heading">
+                    <h4 class="panel-title">Today Sales</h4>
+                </div>
+                <div class="panel-body pt0">
+                    <div class="progressbar-stats-1">
+                        <div class="stats">
+                            <i class="l-ecommerce-cart-content"></i>
+                            <div class="stats-number" data-from="0" data-to="76">@Model.Saletotal</div>
+                        </div>
+                        <div class="progress animated-bar flat transparent progress-bar-xs mb10 mt0">
+                            <div class="progress-bar progress-bar-white" role="progressbar" data-transitiongoal="63"></div>
+                        </div>
+                        <div class="comparison">
+                            <p class="mb0"><i class="fa fa-arrow-circle-o-up s20 mr5 pull-left"></i> 10% up from last month</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End .panel -->
+        </div>
+        <!-- / .col-md-3 -->
+        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+            <!-- .col-md-3 -->
+            <div class="panel panel-danger tile panelClose panelRefresh">
+                <!-- Start .panel -->
+                <div class="panel-heading">
+                    <h4 class="panel-title">Support Questions</h4>
+                </div>
+                <div class="panel-body pt0">
+                    <div class="progressbar-stats-1">
+                        <div class="stats">
+                            <i class="l-basic-life-buoy"></i>
+                            <div class="stats-number" data-from="0" data-to="78">@Model.FAQ</div>
+                        </div>
+                        <div class="progress animated-bar flat transparent progress-bar-xs mb10 mt0">
+                            <div class="progress-bar progress-bar-white" role="progressbar" data-transitiongoal="35"></div>
+                        </div>
+                        <div class="comparison">
+                            <p class="mb0"><i class="fa fa-arrow-circle-o-down s20 mr5 pull-left"></i> Updated from @DateTime.Now.ToString("dd/MM/yyyy")</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End .panel -->
+        </div>
+        <!-- / .col-md-3 -->
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <!-- .col-md-3 -->
+            <div class="panel panel-success tile panelClose panelRefresh">
+                <!-- Start .panel -->
+                <div class="panel-heading">
+                    <h4 class="panel-title">Profit this month</h4>
+                </div>
+                <div class="panel-body pt0">
+                    <div class="progressbar-stats-1 dark">
+                        <div class="stats">
+                            <i class="l-banknote"></i>
+                            <div class="stats-number money" data-from="0" data-to="24568">@Model.ProfitMonth</div>
+                        </div>
+                        <div class="progress animated-bar flat transparent progress-bar-xs mb10 mt0">
+                            <div class="progress-bar progress-bar-white" role="progressbar" data-transitiongoal="55"></div>
+                        </div>
+                        <div class="comparison">
+                            <p class="mb0"><i class="fa fa-arrow-circle-o-down s20 mr5 pull-left"></i>  Updated from @DateTime.Now.ToString("dd/MM/yyyy")</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End .panel -->
+        </div>
+        <!-- / .col-md-3 -->
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 sortable-layout">
+            <!-- col-lg-6 start here -->
+            <div class="panel panel-default toggle">
+                <!-- Start .panel -->
+                <div class="panel-heading">
+                    <h4 class="panel-title"></h4>
+                </div>
+                <div class="panel-body p0">
+                    <div class="tabs inside-panel">
+                        <ul id="myTab5" class="nav nav-tabs">
+                            <li>
+                                <a href="#home5" data-toggle="tab">Inquiry</a>
+                            </li>
+
+                            <li class="">
+                                <a href="#settings5" data-toggle="tab">Invoice</a>
+                            </li>
+                        </ul>
+                        <div id="myTabContent5" class="tab-content">
+                            <div class="tab-pane fade active in" id="home5">
+                                @if (Model.Inquiries != null)
+                                {
+                                    <table class="table table-bordered table-striped table-hover dt-responsive non-responsive" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Date</th>
+                                                <th>Comment</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var p in Model.Inquiries)
+                                            {
+                                                if (p.ReplyId == null)
+                                                {
+                                                    <tr class="inquiry">
+                                                        <th>@p.PurchaseOrderId</th>
+                                                        <td>@p.InquiriedData.Value.ToString("dd-MM-yyyy")</td>
+                                                        <td>
+                                                            <p class="hidden" id="cmt1_@count">@p.Comment</p>
+                                                            <p id="cmt_@count"></p>
+                                                        </td>
+                                                        <td>
+                                                            <span class="label label-info">@p.StatusPurchase</span>
+                                                        </td>
+                                                        <td>
+                                                            <a href="#" class="btn btn-primary btn-sm view-detail-order" data-row="@p.PurchaseOrderId">View</a>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr id="row-@p.PurchaseOrderId" style="display:none;">
+                                                        <td colspan="5">
+                                                            <table class="table" style="background:#e0e0e0">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th colspan="2">Product</th>
+                                                                        <th>Quantity</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+
+                                                                    @foreach (var pd in p.PurchaseOrderDetails)
+                                                                    {
+                                                                        ServiceReference_Item.Item item = await WholesalerController.getValueById(pd.ItemId);
+                                                                        <tr>
+                                                                            <td style="width:90px">
+                                                                                <a href="#">
+                                                                                    <img src="~/images/@item.ImageItem" alt="" class="img-responsive">
+                                                                                    <input id="@p.PurchaseOrderId" type="text" class="hidden" value="@item.ItemId"/>
+                                                                                </a>
+                                                                            </td>
+                                                                            <td>
+                                                                                <a asp-controller="Home" asp-action="ItemDetail" asp-route-id="@pd.ItemId">@item.ItemName</a>
+                                                                            </td>
+                                                                            <td><input type="hidden" class="quantity-reply" value="@pd.Quantity" />@pd.Quantity</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2"></td>
+                                                                            <td class="pull-right">
+                                                                                <button type="button" href="#" data-toggle="modal" data-target="#myModal" class="btn btn-info code-dialog" data-row="@p.PurchaseOrderId"><i class="fa fa-reply"></i> Reply</button>
+                                                                            </td>
+                                                                        </tr>
+                                                                    }
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    count++;
+                                                    var lst_reply = await SupplierController.getListReply(p.PurchaseOrderId);
+                                                    if (lst_reply != null)
+                                                    {
+                                                        @foreach (var r in lst_reply)
+                                                        {
+                                                            <tr class="inquiry">
+                                                                <th># @r.ReplyId</th>
+                                                                <td>@r.InquiriedData.Value.ToString("dd-MM-yyyy")</td>
+                                                                <td>
+                                                                    <p class="hidden" id="cmt1_@count">@r.Comment</p>
+                                                                    <p id="cmt_@count"></p>
+                                                                </td>
+                                                                <td>
+                                                                    <span class="label label-info">@r.StatusPurchase</span>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="#" class="btn btn-primary btn-sm view-detail-order" data-row="@r.PurchaseOrderId">View</a>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr id="row-@r.PurchaseOrderId" style="display:none;">
+                                                                <td colspan="5">
+                                                                    <table class="table" style="background:#e0e0e0">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th colspan="2">Product</th>
+                                                                                <th>Quantity</th>
+                                                                                <th>Unit price</th>
+                                                                                <th>Discount</th>
+                                                                                <th>Total</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            @{
+                                                                                ServiceReference_PurchaseOrderDetail.PurchaseOrderDetail[] replies = await pdt.findPurchaseOrderDetailbypIdAsync(r.ReplyId);
+                                                                            }
+                                                                            @foreach (var pd in replies)
+                                                                            {
+                                                                                ServiceReference_Item.Item item = await WholesalerController.getValueById(pd.ItemId);
+                                                                                <tr>
+                                                                                    <td style="width:90px">
+                                                                                        <a href="#">
+                                                                                            <img src="~/images/@item.ImageItem" alt="" class="img-responsive">
+                                                                                        </a>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <a asp-controller="Home" asp-action="ItemDetail" asp-route-id="@pd.ItemId">@item.ItemName</a>
+                                                                                    </td>
+                                                                                    <td>@pd.Quantity</td>
+                                                                                    <td>@pd.Price</td>
+                                                                                    <td>@((double)pd.Discount)</td>
+                                                                                    <td>@((double)pd.LineTotal)</td>
+                                                                                </tr>
+                                                                            }
+
+                                                                        </tbody>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                            count++;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        </tbody>
+
+                                    </table>
+                                }
+                            </div>
+
+                            <!--Modal-->
+                            <div class="modal fade" id="myModal" role="dialog">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <form id="validate" class="form-horizontal group-border stripped" role="form">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Reply Inquiry</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="form-group">
+                                                    <div class="alert alert-success hidden">
+                                                        <strong>Success!</strong> Reply inquiry success.
+                                                    </div>
+                                                    <div class="alert alert-danger hidden">
+                                                        <strong>Error!</strong> Reply inquiry unseccess. Please try again !
+                                                    </div>
+                                                </div>       
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="text" class="col-lg-2 col-md-3 control-label">Product</label>
+                                                            <div class="col-lg-10 col-md-9">
+                                                                <input type="text" class="form-control" id="itemname">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="text" class="col-lg-2 col-md-3 control-label">Quantity</label>
+                                                            <div class="col-lg-10 col-md-9">
+                                                                <input type="text" class="form-control" id="quantity">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="text" class="col-lg-2 col-md-3 control-label">Price</label>
+                                                            <div class="col-lg-10 col-md-9">
+                                                                <input type="number" name="price" id="price" class="form-control required">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group hidden">
+                                                            <label for="text" class="col-lg-2 col-md-3 control-label">PurchaseId</label>
+                                                            <div class="col-lg-10 col-md-9">
+                                                                <input type="text" class="form-control" name="purchaseId" id="purchaseId">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="text" class="col-lg-2 col-md-3 control-label">Discount</label>
+                                                            <div class="col-lg-10 col-md-9">
+                                                                <input type="number" id="discount" name="discount" class="form-control required">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="text" class="col-lg-2 col-md-3 control-label">Tax</label>
+                                                            <div class="col-lg-10 col-md-9">
+                                                                <input type="number" id="tax" name="tax" class="form-control required">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="text" class="col-lg-2 col-md-3 control-label">Recieve Date</label>
+                                                            <div class="col-lg-10 col-md-9">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                                    <input id="basic-datepicker" name="recievedate" type="text" class="form-control required">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                @*<div class="form-group">
+                                                    <label for="text" class="col-lg-2 col-md-3 control-label">Recieve Date</label>
+                                                    <div class="col-lg-10 col-md-9">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                            <input id="basic-datepicker" name="recievedate" type="text" class="form-control required">
+                                                        </div>
+                                                    </div>
+                                                </div>*@
+                                                <div class="form-group">
+                                                    <label for="text" class="col-md-2 col-sm-3 control-label">Content</label>
+                                                    <div class="col-md-10 col-sm-9">
+                                                        <textarea id="comment" name="comment" class="form-control"></textarea>
+                                                    </div>
+                                                </div>                                                                             
+                                            </div>
+                                            
+                                            <div class="modal-footer">
+                                                <button id="sendReply" type="button" class="btn btn-default">Save</button>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--End Modal-->
+
+                            <div class="tab-pane fade" id="settings5">
+                                @if (Model.Invoices != null)
+                                {
+                                    <table class="table table-bordered table-striped table-hover dt-responsive non-responsive" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Date</th>
+                                                @*<th>Ship Address</th>*@
+                                                <th>Status</th>
+                                                <th>Total</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var i in Model.Invoices)
+                                               {
+                                                <tr>
+                                                    <td>@i.InvoiceId</td>
+                                                    <td>@i.InvoiceDate</td>
+                                                    @*<td>@i.ShipAddress</td>*@
+                                                    <td>@i.Status</td>
+                                                    <td>@i.Total.Value.ToString("c0", new CultureInfo("en-Us"))</td>
+                                                    <td>
+                                                        <a asp-action="InvoiceEdit" asp-controller="Supplier" asp-route-id="@i.InvoiceId"><i class="btn btn-info fa fa-edit"></i></a>
+                                                        <a href="#" class="view-detail-invoice" data-row="@i.InvoiceId"><i class="btn btn-info fa fa-eye"></i></a>
+                                                    </td>
+                                                </tr>
+                                                <tr id="invoice-@i.InvoiceId" style="display:none">
+                                                    <td colspan="5">
+                                                        <!--Invoice Detail-->
+                                                        <!-- Start .row -->
+                                                        <div class="row invoice row-printable">
+                                                            <div class="col-lg-8 col-lg-offset-2">
+                                                                <!-- col-lg-12 start here -->
+                                                                <div class="panel panel-default plain">
+                                                                    <!-- Start .panel -->
+                                                                    <div class="panel-body">
+                                                                        <div class="row">
+                                                                            <div class="col-lg-12">
+                                                                                <!-- col-lg-12 start here -->
+                                                                                <div class="row">
+                                                                                    <div class="col-md-6">
+                                                                                        <div class="invoice-details mt25">
+                                                                                            <div class="well">
+                                                                                                <ul class="list-unstyled mb0">
+                                                                                                    <li><strong>Invoice</strong> @i.InvoiceId</li>
+                                                                                                    <li><strong>Invoice Date:</strong> @i.InvoiceDate</li>
+                                                                                                    <li><strong>Due Date:</strong> @i.PurchaseOrder.ReceivedDate</li>
+                                                                                                    <li>
+                                                                                                        <strong>Status:</strong>  <span class="label label-danger">@i.Status</span>
+                                                                                                    </li>
+                                                                                                </ul>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-6">
+                                                                                        <div class="invoice-to mt25">
+                                                                                            <div class="well">
+                                                                                                <ul class="list-unstyled">
+                                                                                                    <li>
+                                                                                                        <strong>Invoiced To</strong>
+                                                                                                    </li>
+                                                                                                    @{
+                                                                                                        ServiceReference_Wholesaler.Wholesaler w = await wc.findWholesalerByIdAsync(i.PurchaseOrder.WholesalerId);
+                                                                                                    }
+                                                                                                    <li>@w.Fullname</li>
+                                                                                                    <li>@w.Email</li>
+                                                                                                    <li>@i.ShipAddress</li>
+                                                                                                    <li></li>
+                                                                                                </ul>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+
+                                                                                <div class="invoice-items">
+                                                                                    <table class="table table-bordered">
+                                                                                        <thead>
+                                                                                            <tr>
+                                                                                                <th class="per70 text-center">Description</th>
+                                                                                                <th class="per5 text-center">Qty</th>
+                                                                                                <th class="per5 text-center">Price</th>
+                                                                                                <th class="per5 text-center">Discount</th>
+                                                                                                <th class="per5 text-center">Tax</th>
+                                                                                                <th class="per25 text-center">Sub Total</th>
+                                                                                            </tr>
+                                                                                        </thead>
+                                                                                        <tbody>
+                                                                                            @{
+                                                                                                ServiceReference_PurchaseOrderDetail.PurchaseOrderDetail[] purchasedts = await pdt.findPurchaseOrderDetailbypIdAsync(i.PurchaseOrderId);
+                                                                                            }
+                                                                                            @foreach (var pd in purchasedts)
+                                                                                            {
+                                                                                                <tr>
+                                                                                                    <td>@pd.Item.ItemName</td>
+                                                                                                    <td class="text-center">@pd.Quantity</td>
+                                                                                                    <td class="text-center">@pd.Price.ToString("C0",new CultureInfo("en-US"))</td>
+                                                                                                    <td class="text-center">@((pd.Quantity * pd.Price * (double)pd.Discount / 100).ToString("C0", new CultureInfo("en-US")))</td>
+                                                                                                    <td class="text-center">@((pd.Quantity * pd.Price * (double)pd.Tax / 100).ToString("C0", new CultureInfo("en-US")))</td>
+                                                                                                    <td class="text-center">@(((double)pd.LineTotal).ToString("C0", new CultureInfo("en-US")))</td>
+                                                                                                </tr>
+
+                                                                                            }
+
+
+                                                                                        </tbody>
+                                                                                        <tfoot>
+                                                                                            <tr>
+                                                                                                <th colspan="5" class="text-right">Shipping :</th>
+                                                                                                <th class="text-center">@i.ShipFee.Value.ToString("C0", new CultureInfo("en-US"))</th>
+                                                                                            </tr>
+                                                                                            @*<tr>
+                                                                                                    <th colspan="2" class="text-right">Credit:</th>
+                                                                                                    <th class="text-center">$00.00 USD</th>
+                                                                                                </tr>*@
+                                                                                            <tr>
+                                                                                                <th colspan="5" class="text-right">Total:</th>
+                                                                                                <th class="text-center">@i.Total.Value.ToString("C0", new CultureInfo("en-US")) </th>
+                                                                                            </tr>
+                                                                                        </tfoot>
+                                                                                    </table>
+                                                                                </div>
+                                                                                <div class="invoice-footer mt25">
+                                                                                    <p class="text-center">
+                                                                                        Generated on @DateTime.Now <a href="#" class="btn btn-default ml15"><i class="fa fa-print mr5"></i> Print </a>
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!-- col-lg-12 end here -->
+                                                                        </div>
+                                                                        <!-- End .row -->
+                                                                    </div>
+                                                                </div>
+                                                                <!-- End .panel -->
+                                                            </div>
+                                                            <!-- col-lg-12 end here -->
+                                                        </div>
+                                                        <!-- End .row -->
+                                                        <!--End Invoice Detail-->
+                                                    </td>
+                                                </tr>
+
+                                              }
+
+                                        </tbody>
+                                    </table>
+                                      }
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End .tabs -->
+                </div>
+
+            </div>
+            <!-- End .panel -->
+        </div>
+        <!-- col-lg-6 end here -->
+    </div>
+    <!-- End .row -->
+    <div class="row">
+        <!-- Start .row -->
+        <div class="col-lg-8 col-md-12">
+            <div class="row">
+                <!-- Start .row -->
+                <div class="col-lg-12">
+                    <!-- col-lg-12 start here -->
+                    <div class="col-lg-12 col-md-6 p0">
+                        <!-- col-lg-4 start here -->
+                        <div class="panel panel-default tile btrr0 bbrr0" data-mh="sales-locations">
+                            <!-- Start .panel -->
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><i class="glyphicon glyphicon-list-alt"></i> Latest Sales</h4>
+                            </div>
+                            <div class="panel-body pt0">
+                                <ul class="list-unstyled mb0">
+                                    @if (Model.LastInvoices != null)
+                                                                                                {
+
+                                                                                                    @foreach (var invoice in Model.LastInvoices)
+                                        {
+                                            <li class="mb5 pb5 bbdashed">
+                                                @*<span class="strong">@invoice</span> order*@
+                                                <span class="color-red">#@invoice.InvoiceId</span> - @invoice.Total.Value.ToString("C0", new CultureInfo("en-US"))
+                                            </li>
+
+                                        }
+                                    }
+
+
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- End .panel -->
+                    </div>
+                    <!-- col-lg-12 end here -->
+                </div>
+                <!-- col-lg-12 end here -->
+            </div>
+            <!-- End .row -->
+        </div>
+        <!-- col-lg-8 end here -->
+        <div class="col-lg-4 col-md-12">
+            <!-- col-lg-4 start here -->
+            <div class="panel panel-default plain toggle panelMove panelClose panelRefresh">
+                <!-- Start .panel -->
+                <div class="panel-heading">
+                    <h4 class="panel-title"><i class="fa fa-comments"></i>Customer Comments</h4>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group recent-comments">
+
+                        @if (ViewBag.feedback != null)
+                        {
+                            foreach (var f in (ServiceReference_Feedback.Feedback[])ViewBag.feedback)
+                            {
+                                <li class="list-group-item clearfix comment-success">
+                                    <p class="text-ellipsis"><span class="name strong">@f.Wholesaler.Fullname </span> @f.Message</p>
+                                    <span class="date text-muted small pull-left">@f.ReceivedDate</span>
+                                    <a asp-controller="Supplier" asp-action="FeedbackDetail" asp-route-id="@f.ID" class="see-more small pull-right">View comment</a>
+                                </li>
+                            }
+
+                        }
+                    </ul>
+                </div>
+            </div>
+            <!-- End .panel -->
+        </div>
+        <!-- col-lg-4 end here -->
+    </div>
+    <!-- End .row -->
+    <!-- Modal -->
+</div>
+<!-- / .page-content-inner -->

@@ -1,0 +1,124 @@
+﻿@model EnotsCompany.Models.SupplierModel
+<div id="all">
+    <div class="top-banner" style="background-image: url('https://img.alicdn.com/tps/TB14HHcPFXXXXc8XFXXXXXXXXXX-1440-280.jpg'); background-repeat: no-repeat; background-size: cover; min-height: 150px; color: #fff; margin: -30px 0 30px 0; padding: 30px 0">
+        <div class="container">
+            <div class="h3" style="margin-bottom: 2px">@Model.supplier.CompanyName</div>
+            <div class="">@Model.supplier.BussinessType</div>
+            <div class="h5">@Model.supplier.Address</div>
+        </div>
+    </div>
+    <div id="content">
+        <div class="container">
+
+            <div class="">
+
+                <div class="box">
+                    <h2 class="text-center" style="padding: 0; margin: 0;">MAIN PRODUCTS</h2>
+                </div>
+
+
+                <div class="row products">
+                    @foreach (var d in Model.items)
+                    {
+                        <div class="col-md-3 col-sm-4">
+                            <div class="product">
+                                <div class="flip-container">
+                                    <div class="flipper">
+                                        <div class="front">
+                                            <a href="/home/itemdetail?id=@d.ItemId&cateId=@d.CategoryId">
+                                                <img src="~/images/@d.ImageItem" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                        <div class="back">
+                                            <a href="/home/itemdetail?id=@d.ItemId&cateId=@d.CategoryId">
+                                                <img src="~/images/@d.ImageItem" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="/home/itemdetail?id=@d.ItemId&cateId=@d.CategoryId" class="invisible">
+                                    <img src="~/images/@d.ImageItem" alt="" class="img-responsive">
+                                </a>
+                                <div class="text">
+                                    <h3><a href="/home/itemdetail?id=@d.ItemId&cateId=@d.CategoryId">@d.ItemName</a></h3>
+                                    <p class="price">US $@d.Price/@d.Unit.UnitName</p>
+                                    <p class="buttons">
+                                        <a asp-controller="Wholesaler" asp-action="ContactSupplier" asp-route-itemId="@d.ItemId" class="btn btn-primary"><i class="fa fa-envelope-o"></i>Contact supplier</a>
+                                    </p>
+                                </div>
+                                <!-- /.text -->
+                            </div>
+                            <!-- /.product -->
+                        </div>
+
+                    }
+                </div>
+
+
+                <!-- /.products -->
+
+                <div class="pages">
+                    <p class="loadMore">
+                        <a asp-action="SupplierItem" asp-route-supplierId="@Model.supplier.SupplierId" class="btn btn-primary btn-lg"> View More Details</a>
+                    </p>
+                </div>
+
+                <div class="box">
+                    <h2 class="text-center" style="padding: 0;">CONTACTS</h2>
+                    <div class="row" style="margin: 50px">
+                        <div class="col-md-3" style="border-right:1px solid #ccc; min-height: 230px ">
+                            <div class="text-center">
+                                <img src="~/images/@Model.supplier.Avatar" class="img-responsive img-rounded" style="display: inline-block; border-radius: 50%; max-width: 150px">
+                                <div class="display-name h4" title="Ms. Elaine Chen" style="margin-bottom: 2px">@Model.supplier.Name</div>
+                                <div class="job-title" title="Business Manager">@Model.supplier.Title</div>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="row">
+                                <div class="col-md-3 text-right"><label style="color: #999">Company Name:</label></div>
+                                <div class="col-md-9">@Model.supplier.CompanyName</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 text-right"><label style="color: #999">Business Type:</label></div>
+                                <div class="col-md-9">@Model.supplier.BussinessType</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 text-right"><label style="color: #999">Total Employees:</label></div>
+                                <div class="col-md-9">@Model.supplier.TotalEmployees People</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 text-right"><label style="color: #999">Year Established:</label></div>
+                                <div class="col-md-9">@Model.supplier.YearEstablished.ToString().Split(' ')[0]</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 text-right"><label style="color: #999">Telephone:</label></div>
+                                <div class="col-md-9">@Model.supplier.Phone</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 text-right"><label style="color: #999">Address:</label></div>
+                                <div class="col-md-9">@Model.supplier.Address</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 text-right"><label style="color: #999">Zip:</label></div>
+                                <div class="col-md-9">@Model.supplier.Zipcode</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 text-right"><label style="color: #999">Country:</label></div>
+                                <div class="col-md-9">@Model.supplier.Country</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3 text-right"><label style="color: #999">Province/State:</label></div>
+                                <div class="col-md-9">@Model.supplier.Province</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.col-md-2 -->
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /#content -->
+</div>
+<!-- /#all -->

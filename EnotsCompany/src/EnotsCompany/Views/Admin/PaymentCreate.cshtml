@@ -1,0 +1,47 @@
+﻿@model ServiceReference_Payment.PaymentMethod
+<div class="page-content-inner">
+    <!-- Start .page-content-inner -->
+    <form asp-action="PaymentSave" asp-controller="Admin" class="form-horizontal group-border stripped">
+        <div id="page-header" class="clearfix">
+            <div class="page-header">
+                <h2>Payment mehthods</h2>
+                @*<span class="txt">Load data from api or dynamic via ajax</span>*@
+            </div>
+            <div class="header-stats">
+                <button type="submit" class="btn btn-info"><i class="fa fa-save"></i></button>
+                <a asp-action="PaymentIndex" asp-controller="Admin"><i class="btn btn-info fa fa-mail-reply"></i></a>
+            </div>
+        </div>
+        <div class="@(ViewBag.flag == "success" ? "alert alert-success fade in" : ViewBag.flag == "error" ? "alert alert-danger fade in" : "hidden")">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <i class="fa fa-check alert-icon "></i>
+            @ViewBag.message
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- col-lg-12 start here -->
+                <div class="panel panel-default plain toggle">
+                    <!-- Start .panel -->
+                    <div class="panel-heading">
+                        <h4 class="panel-title">Add payment</h4>
+                    </div>
+                    <div class="panel-body pt0 pb0">
+                        <div class="form-group">
+                            <label class="col-lg-2 col-md-3 control-label" for="">Payment method Id</label>
+                            <div class="col-lg-10 col-md-9">
+                                <input type="text" class="form-control" readonly asp-for="@Model.PaymentMethodId">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 col-md-3 control-label" for="">Name</label>
+                            <div class="col-lg-10 col-md-9">
+                                <input type="text" class="form-control required" asp-for="@Model.Name">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

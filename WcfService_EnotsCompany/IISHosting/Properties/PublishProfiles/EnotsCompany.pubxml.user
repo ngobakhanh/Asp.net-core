@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>http://localhost/IISHosting/EnotsCompany</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="ApplicationInsights.config">
+      <publishTime>05/22/2017 01:01:42</publishTime>
+    </File>
+    <File Include="ArticleService.svc">
+      <publishTime>07/27/2017 07:49:08</publishTime>
+    </File>
+    <File Include="bin/ApplicationInsights.config">
+      <publishTime>05/22/2017 01:01:42</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>05/22/2017 01:01:47</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>05/22/2017 01:01:47</publishTime>
+    </File>
+    <File Include="bin/IISHosting.dll">
+      <publishTime>07/28/2017 20:33:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
+      <publishTime>05/22/2017 01:01:48</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.DependencyCollector.dll">
+      <publishTime>05/22/2017 01:01:48</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.PerfCounterCollector.dll">
+      <publishTime>05/22/2017 01:01:48</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.ServerTelemetryChannel.dll">
+      <publishTime>05/22/2017 01:01:48</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Web.dll">
+      <publishTime>05/22/2017 01:01:48</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.WindowsServer.dll">
+      <publishTime>05/22/2017 01:01:48</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ApplicationInsights.dll">
+      <publishTime>05/22/2017 01:01:47</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>05/22/2017 01:01:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>05/22/2017 01:01:49</publishTime>
+    </File>
+    <File Include="bin/roslyn/desktop.ini">
+      <publishTime>07/27/2017 18:20:15</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>05/22/2017 01:01:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>05/22/2017 01:01:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>05/22/2017 01:01:49</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>05/22/2017 01:01:49</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>05/22/2017 01:01:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>05/22/2017 01:01:49</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>05/22/2017 01:01:49</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>05/22/2017 01:01:49</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>05/22/2017 01:01:49</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>05/22/2017 01:01:49</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>05/22/2017 01:01:49</publishTime>
+    </File>
+    <File Include="bin/WcfServiceLibrary_EnotsCompany.dll">
+      <publishTime>07/28/2017 20:33:10</publishTime>
+    </File>
+    <File Include="CategoryService.svc">
+      <publishTime>07/27/2017 07:50:06</publishTime>
+    </File>
+    <File Include="ContactPersonService.svc">
+      <publishTime>07/27/2017 07:46:17</publishTime>
+    </File>
+    <File Include="CountryService.svc">
+      <publishTime>07/27/2017 07:49:40</publishTime>
+    </File>
+    <File Include="EmployeeService.svc">
+      <publishTime>07/27/2017 07:50:33</publishTime>
+    </File>
+    <File Include="FeedbackService.svc">
+      <publishTime>07/27/2017 08:41:27</publishTime>
+    </File>
+    <File Include="InvoiceService.svc">
+      <publishTime>07/27/2017 07:40:39</publishTime>
+    </File>
+    <File Include="ItemService.svc">
+      <publishTime>07/27/2017 00:35:11</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>05/22/2017 01:01:45</publishTime>
+    </File>
+    <File Include="PaymentMethodService.svc">
+      <publishTime>07/27/2017 07:51:22</publishTime>
+    </File>
+    <File Include="PurchaseOrderDetailService.svc">
+      <publishTime>07/27/2017 07:43:06</publishTime>
+    </File>
+    <File Include="PurchaseOrderService.svc">
+      <publishTime>07/27/2017 07:42:18</publishTime>
+    </File>
+    <File Include="RSSService.svc">
+      <publishTime>07/27/2017 07:47:25</publishTime>
+    </File>
+    <File Include="SliderService.svc">
+      <publishTime>07/27/2017 07:52:06</publishTime>
+    </File>
+    <File Include="SupplierService.svc">
+      <publishTime>07/27/2017 07:43:47</publishTime>
+    </File>
+    <File Include="UnitService.svc">
+      <publishTime>07/27/2017 07:52:37</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>07/27/2017 16:00:54</publishTime>
+    </File>
+    <File Include="WholesalerService.svc">
+      <publishTime>07/27/2017 07:45:49</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

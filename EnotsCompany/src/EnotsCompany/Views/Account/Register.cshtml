@@ -1,0 +1,88 @@
+﻿@using EnotsCompany.Models.AccountViewModels
+@model RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Home/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-md-4 col-md-offset-4 register">
+        <form asp-controller="Account" asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal">
+            <div class="form-group">
+                <label asp-for="Email" class="col-md-4 control-label"></label>
+                <div class="col-md-8">
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="col-md-4 control-label"></label>
+                <div class="col-md-8">
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfirmPassword" class="col-md-4 control-label"></label>
+                <div class="col-md-8">
+                    <input asp-for="ConfirmPassword" class="form-control" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Location" class="col-md-4 control-label"></label>
+                <div class="col-md-8">
+                    <select asp-for="Location" asp-items="@(new SelectList(Model.lst_countries,"CountryId","CommonName"))" class="form-control"></select>
+                    <span asp-validation-for="Location" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Role" class="col-md-4 control-label"></label>
+                <div class="col-md-8">
+                    <label class="radio-inline">
+                    <input type="radio" asp-for="Role" value="Supplier">Supplier
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" asp-for="Role" value="Wholesaler">Buyer
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" asp-for="Role" value="Both">Both
+                    </label>
+                    <br/>
+                    <span asp-validation-for="Role" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="col-md-4 control-label"></label>
+                <div class="col-md-8">
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompanyName" class="col-md-4 control-label"></label>
+                <div class="col-md-8">
+                    <input asp-for="CompanyName" class="form-control" />
+                    <span asp-validation-for="CompanyName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone" class="col-md-4 control-label"></label>
+                <div class="col-md-8">
+                    <input asp-for="Phone" class="form-control" placeholder="000-000-0000"/>
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-4 col-md-10">
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </div>
+            </div>
+        </form>
+        @section Scripts {
+                @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+            }
+    </div>
+</div>
+
+
+

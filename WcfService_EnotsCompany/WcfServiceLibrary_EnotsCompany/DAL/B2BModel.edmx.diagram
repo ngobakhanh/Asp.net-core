@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3b6c24442ccc4975adb64fb3ec5a01a8" Name="Diagram1" ZoomLevel="83">
+        <EntityTypeShape EntityType="B2BModel.Article" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="B2BModel.Category" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="B2BModel.ContactPerson" Width="1.5" PointX="5.25" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="B2BModel.Country" Width="1.5" PointX="0.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="B2BModel.Employee" Width="1.5" PointX="5.25" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="B2BModel.Feedback" Width="1.5" PointX="5.25" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="B2BModel.PaymentMethod" Width="1.5" PointX="5.25" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="B2BModel.Unit" Width="1.5" PointX="2.875" PointY="3.125" IsExpanded="true" />
+        <AssociationConnector Association="B2BModel.FK__Category__Parent__1BFD2C07" ManuallyRouted="false" />
+        <AssociationConnector Association="B2BModel.FK__Feedback__ReplyI__48CFD27E" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="B2BModel.Item" Width="1.5" PointX="8.625" PointY="5.875" />
+        <AssociationConnector Association="B2BModel.FK__Item__CategoryId__286302EC" />
+        <AssociationConnector Association="B2BModel.FK__Feedback__ItemId__47DBAE45" />
+        <AssociationConnector Association="B2BModel.FK__Item__ParentItem__2A4B4B5E" />
+        <AssociationConnector Association="B2BModel.FK__Item__UnitId__2B3F6F97" />
+        <EntityTypeShape EntityType="B2BModel.PurchaseOrderDetail" Width="2.875" PointX="11.5" PointY="16" />
+        <AssociationConnector Association="B2BModel.FK__PurchaseO__ItemI__35BCFE0A" />
+        <AssociationConnector Association="B2BModel.FK__PurchaseO__UnitI__36B12243" />
+        <EntityTypeShape EntityType="B2BModel.Invoice" Width="1.5" PointX="7.5" PointY="15.625" />
+        <AssociationConnector Association="B2BModel.FK__Invoice__Emloyee__3C69FB99" />
+        <AssociationConnector Association="B2BModel.FK__Invoice__Payment__3B75D760" />
+        <EntityTypeShape EntityType="B2BModel.PurchaseOrder" Width="1.5" PointX="11.25" PointY="10.625" />
+        <AssociationConnector Association="B2BModel.FK__Invoice__Purchas__3A81B327" />
+        <AssociationConnector Association="B2BModel.FK__PurchaseO__Purch__34C8D9D1" />
+        <EntityTypeShape EntityType="B2BModel.Slider" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="B2BModel.Supplier" Width="1.5" PointX="3" PointY="6" />
+        <AssociationConnector Association="B2BModel.FK__Supplier__TotalE__1FCDBCEB" />
+        <AssociationConnector Association="B2BModel.FK__Supplier__Countr__20C1E124" />
+        <AssociationConnector Association="B2BModel.FK__Feedback__Suppli__46E78A0C" />
+        <AssociationConnector Association="B2BModel.FK_Invoice_Supplier" />
+        <AssociationConnector Association="B2BModel.FK__Item__SupplierId__29572725" />
+        <AssociationConnector Association="B2BModel.FK_PurchaseOrder_Supplier" />
+        <EntityTypeShape EntityType="B2BModel.Wholesaler" Width="1.5" PointX="3" PointY="13.125" />
+        <AssociationConnector Association="B2BModel.FK__ContactPe__Whole__182C9B23" />
+        <AssociationConnector Association="B2BModel.FK__Wholesale__Count__15502E78" />
+        <AssociationConnector Association="B2BModel.FK__Feedback__Wholes__45F365D3" />
+        <AssociationConnector Association="B2BModel.FK_Invoice_Wholesaler" />
+        <AssociationConnector Association="B2BModel.FK__PurchaseO__Whole__31EC6D26" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

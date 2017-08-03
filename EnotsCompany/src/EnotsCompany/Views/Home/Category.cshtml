@@ -1,0 +1,122 @@
+﻿@model EnotsCompany.Models.PaginatedList<ServiceReference_Item.Item>
+
+
+<div id="all">
+
+    <div id="content">
+        <div class="container">
+
+            <div class="col-md-12">
+
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="Index">Home</a>
+                    </li>
+                    <li>@ViewData["link"]</li>
+                </ul>
+                @if (Model.Count == 0)
+                {
+                    <div class="col-12-md search-notmatch">
+                        <p>Your search "@ViewData["link"]" did not match any products. You may
+                        consider to: </p>
+                        <ul>
+                            <li>Check to spelling</li>
+                            <li>Use less keywords</li>
+                            <li>Use different keywords</li>
+                        </ul>
+                    </div>
+                }
+                <div class="row products">
+                    
+                    @foreach (var d in Model)
+                    {
+                        <div class="col-md-3 col-sm-4">
+                            <div class="product">
+                                <div class="flip-container">
+                                    <div class="flipper">
+                                        <div class="front">
+                                            <a href="/home/itemdetail?id=@d.ItemId&cateId=@d.CategoryId">
+                                                <img src="~/images/@d.ImageItem" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                        <div class="back">
+                                            <a href="/home/itemdetail?id=@d.ItemId&cateId=@d.CategoryId">
+                                                <img src="~/images/@d.ImageItem" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="/home/itemdetail?id=@d.ItemId&cateId=@d.CategoryId" class="invisible">
+                                    <img src="~/images/@d.ImageItem" alt="" class="img-responsive">
+                                </a>
+                                <div class="text">
+                                    <h3><a href="/home/itemdetail?id=@d.ItemId&cateId=@d.CategoryId">@d.ItemName</a></h3>
+                                    <p class="price">US $@d.Price/@d.Unit.UnitName</p>
+                                    <p class="buttons">
+                                        <a asp-controller="Wholesaler" asp-action="ContactSupplier" asp-route-itemId="@d.ItemId" class="btn btn-primary"><i class="fa fa-envelope-o"></i>Contact supplier</a>
+                                    </p>
+                                </div>
+                                <!-- /.text -->
+                            </div>
+                            <!-- /.product -->
+                        </div>
+
+                    }
+                </div>
+
+                <!-- /.products -->
+                <div class="pages">
+
+                    @{
+                        var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+                        var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+                    }
+
+                    @*<p class="loadMore">
+                        <a href="#" class="btn btn-primary btn-lg"><i class="fa fa-chevron-down"></i> Load more</a>
+                    </p>*@
+
+                    @*asp-route-searchString="ViewData["CurrentFilter"]"*@
+                    @if (Model.TotalPages > 1)
+                    {
+
+                        <ul class="pagination">
+                            <li>
+                                <a asp-action="Category"
+                                   asp-route-categoryId="@ViewBag.CategoryId"
+                                   asp-route-page="@(Model.PageIndex - 1)"
+                                   asp-route-searchString="@ViewData["CurrentFilter"]"
+                                   class="btn btn-default @prevDisabled">
+                                    &laquo;
+                                </a>
+                            </li>
+                            @for (int i = 1; i <= Model.TotalPages; i++)
+                            {
+                                <li class="@(ViewBag.page== i?"active":"")">
+                                    <a asp-action="Category"
+                                       asp-route-categoryId="@ViewBag.CategoryId"
+                                       asp-route-page="@i" 
+                                       asp-route-searchString="@ViewData["CurrentFilter"]">@i</a>
+                                </li>
+                            }
+                            <li>
+                                <a asp-action="Category"
+                                   asp-route-categoryId="@ViewBag.CategoryId"
+                                   asp-route-page="@(Model.PageIndex + 1)"
+                                   asp-route-searchString="@ViewData["CurrentFilter"]"
+                                   class="btn btn-default @nextDisabled">
+                                    &raquo;
+                                </a>
+                            </li>
+                        </ul>
+                    }
+
+                </div>
+            </div>
+            <!-- /.col-md-9 -->
+
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /#content -->
+</div>

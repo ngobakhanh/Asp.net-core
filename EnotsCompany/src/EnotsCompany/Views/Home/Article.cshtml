@@ -1,0 +1,151 @@
+﻿@model EnotsCompany.Models.PaginatedList<ServiceReference_Article.Article>
+<div id="all">
+
+    <div id="content">
+        <div class="container">
+
+            <div class="col-sm-12">
+                <ul class="breadcrumb">
+
+                    <li>
+                        <a href="index">Home</a>
+                    </li>
+                    <li>Blog listing</li>
+                </ul>
+            </div>
+
+            <!-- *** LEFT COLUMN ***
+            _________________________________________________________ -->
+
+            <div class="col-sm-12" id="blog-listing">
+                @foreach (var item in Model)
+                {
+                    <div class="col-sm-6">
+                        <div class="post">
+                            <h2><a href="ArticleDetail?id=@item.ArticleId">@item.Title </a></h2>
+                            <p class="author-category">
+                                <i><strong> By Admin</strong></i> | 
+                                <i class="fa fa-calendar-o"></i> @item.AddDate.Value.ToString("dd/MM/yyyy")
+                            </p>
+                            <hr>
+                            <p class="date-comments">
+                                
+                                @*<a href="ArticleDetail?id=@item.ArticleId"><i class="fa fa-comment-o"></i> 8 Comments</a>*@
+                            </p>
+                            <div class="image">
+                                <a href="ArticleDetail?id=@item.ArticleId">
+                                    <img src="~/images/@item.ImageArticle" width="500" height="300" class="img-responsive" alt="Example blog post alt">
+                                </a>
+                            </div>
+                            
+                            <p class="read-more">
+                                <a href="ArticleDetail?id=@item.ArticleId" class="btn btn-primary">Continue reading</a>
+                            </p>
+                        </div>
+                    </div>
+
+                }
+
+
+
+                <div class="pages">
+
+                    @{
+                        var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+                        var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+                    }
+
+                    @*<p class="loadMore">
+                <a href="#" class="btn btn-primary btn-lg"><i class="fa fa-chevron-down"></i> Load more</a>
+            </p>*@
+
+                    @*asp-route-searchString="ViewData["CurrentFilter"]"*@
+                    @if (Model.TotalPages > 1)
+                    {
+
+                        <ul class="pagination">
+                            <li>
+                                <a asp-action="Article"
+                                   asp-route-page="@(Model.PageIndex - 1)"
+                                   class="btn btn-default @prevDisabled">
+                                    &laquo;
+                                </a>
+                            </li>
+                            @for (int i = 1; i <= Model.TotalPages; i++)
+                            {
+                                <li class="@(ViewBag.page== i?"active":"")">
+                                    <a asp-action="Article"
+                                       asp-route-page="@i">@i</a>
+                                </li>
+                            }
+                            <li>
+                                <a asp-action="Article"
+                                   asp-route-page="@(Model.PageIndex + 1)"
+                                   class="btn btn-default @nextDisabled">
+                                    &raquo;
+                                </a>
+                            </li>
+                        </ul>
+                    }
+
+                </div>
+
+                @*<ul class="pager">
+                    <li class="previous">
+                        <a href="#">&larr; Older</a>
+                    </li>
+                    <li class="next disabled">
+                        <a href="#">Newer &rarr;</a>
+                    </li>
+                </ul>*@
+
+
+
+            </div>
+            <!-- /.col-md-9 -->
+            <!-- *** LEFT COLUMN END *** -->
+            @*<div class="col-md-3">
+                    <!-- *** BLOG MENU ***
+                    _________________________________________________________ -->
+                    <div class="panel panel-default sidebar-menu">
+
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Blog</h3>
+                        </div>
+
+                        <div class="panel-body">
+
+                            <ul class="nav nav-pills nav-stacked">
+                                <li>
+                                    <a href="blog.html">About us</a>
+                                </li>
+                                <li class="active">
+                                    <a href="blog.html">Fashion</a>
+                                </li>
+                                <li>
+                                    <a href="blog.html">News and gossip</a>
+                                </li>
+                                <li>
+                                    <a href="blog.html">Design</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <!-- /.col-md-3 -->
+                    <!-- *** BLOG MENU END *** -->
+
+                    <div class="banner">
+                        <a href="#">
+                            <img src="img/banner.jpg" alt="sales 2014" class="img-responsive">
+                        </a>
+                    </div>
+                </div>*@
+
+
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /#content -->
+
+</div>

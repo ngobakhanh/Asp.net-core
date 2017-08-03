@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Debug="true" Language="C#" Service="WcfServiceLibrary_EnotsCompany.ContactPersonService" %>

@@ -1,0 +1,68 @@
+﻿@model ServiceReference_Country.Country
+<div class="page-content-inner">
+    <!-- Start .page-content-inner -->
+    <form asp-action="CountryUpdate" asp-controller="Admin" class="form-horizontal group-border stripped">
+        <div id="page-header" class="clearfix">
+            <div class="page-header">
+                <h2>Countries</h2>
+                @*<span class="txt">Load data from api or dynamic via ajax</span>*@
+            </div>
+            <div class="header-stats">
+                <button type="submit" class="btn btn-info"><i class="fa fa-save"></i></button>
+                <a asp-action="CountryIndex" asp-controller="Admin"><i class="btn btn-info fa fa-mail-reply"></i></a>
+            </div>
+        </div>
+        <div class="@(ViewBag.flag == "success" ? "alert alert-success fade in" : ViewBag.flag == "error" ? "alert alert-danger fade in" : "hidden")">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <i class="fa fa-check alert-icon "></i>
+            @ViewBag.message
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- col-lg-12 start here -->
+                <div class="panel panel-default plain toggle">
+                    <!-- Start .panel -->
+                    <div class="panel-heading">
+                        <h4 class="panel-title">Edit country</h4>
+                    </div>
+                    <div class="panel-body pt0 pb0">
+                        <div class="form-group hidden">
+                            <label class="col-lg-2 col-md-3 control-label" for="">Country Id</label>
+                            <div class="col-lg-10 col-md-9">
+                                <input type="text" class="form-control" readonly asp-for="CountryId">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 col-md-3 control-label" for="">CountryCode</label>
+                            <div class="col-lg-10 col-md-9">
+                                <input type="text" class="form-control required" required asp-for="CountryCode">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 col-md-3 control-label" for="">Common name</label>
+                            <div class="col-lg-10 col-md-9">
+                                <input type="text" class="form-control required" required asp-for="CommonName">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 col-md-3 control-label">Status</label>
+                            <div class="col-lg-10 col-md-9">
+                                <div class="radio-custom">
+                                    <input type="radio" value="Enable" checked="checked" id="radio1" asp-for="StatusCountry">
+                                    <label for="radio1">Enable</label>
+                                </div>
+                                <div class="radio-custom">
+                                    <input type="radio" value="Disable" id="radio2" asp-for="StatusCountry">
+                                    <label for="radio2">Disable</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,643 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="B2BModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Article">
+    <Key>
+      <PropertyRef Name="ArticleId" />
+    </Key>
+    <Property Name="ArticleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="180" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ImageArticle" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Link" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AddDate" Type="DateTime" Precision="3" />
+    <Property Name="ViewCount" Type="Int32" />
+    <Property Name="StatusArticle" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ImageCate" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="ParentId" Type="Int32" />
+    <Property Name="StatusCate" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Category1" Relationship="Self.FK__Category__Parent__1BFD2C07" FromRole="Category" ToRole="Category1" />
+    <NavigationProperty Name="Category2" Relationship="Self.FK__Category__Parent__1BFD2C07" FromRole="Category1" ToRole="Category" />
+    <NavigationProperty Name="Items" Relationship="B2BModel.FK__Item__CategoryId__286302EC" FromRole="Category" ToRole="Item" />
+    <NavigationProperty Name="Suppliers" Relationship="B2BModel.FK__Supplier__TotalE__1FCDBCEB" FromRole="Category" ToRole="Supplier" />
+  </EntityType>
+  <EntityType Name="ContactPerson">
+    <Key>
+      <PropertyRef Name="ContactPersonId" />
+    </Key>
+    <Property Name="ContactPersonId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WholesalerId" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Fullname" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="StatusCP" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Wholesaler" Relationship="B2BModel.FK__ContactPe__Whole__182C9B23" FromRole="ContactPerson" ToRole="Wholesaler" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CommonName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="StatusCountry" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Suppliers" Relationship="B2BModel.FK__Supplier__Countr__20C1E124" FromRole="Country" ToRole="Supplier" />
+    <NavigationProperty Name="Wholesalers" Relationship="B2BModel.FK__Wholesale__Count__15502E78" FromRole="Country" ToRole="Wholesaler" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Name="EmployeeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fullname" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AddressEmp" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="StatusEmp" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Invoices" Relationship="B2BModel.FK__Invoice__Emloyee__3C69FB99" FromRole="Employee" ToRole="Invoice" />
+  </EntityType>
+  <EntityType Name="Feedback">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SubjectFB" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="WholesalerId" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="SupplierId" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ItemId" Type="Int32" Nullable="false" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReceivedDate" Type="DateTime" Precision="3" />
+    <Property Name="ReplyId" Type="Int32" />
+    <NavigationProperty Name="Feedback1" Relationship="Self.FK__Feedback__ReplyI__48CFD27E" FromRole="Feedback" ToRole="Feedback1" />
+    <NavigationProperty Name="Feedback2" Relationship="Self.FK__Feedback__ReplyI__48CFD27E" FromRole="Feedback1" ToRole="Feedback" />
+    <NavigationProperty Name="Item" Relationship="B2BModel.FK__Feedback__ItemId__47DBAE45" FromRole="Feedback" ToRole="Item" />
+    <NavigationProperty Name="Supplier" Relationship="B2BModel.FK__Feedback__Suppli__46E78A0C" FromRole="Feedback" ToRole="Supplier" />
+    <NavigationProperty Name="Wholesaler" Relationship="B2BModel.FK__Feedback__Wholes__45F365D3" FromRole="Feedback" ToRole="Wholesaler" />
+  </EntityType>
+  <EntityType Name="PaymentMethod">
+    <Key>
+      <PropertyRef Name="PaymentMethodId" />
+    </Key>
+    <Property Name="PaymentMethodId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Invoices" Relationship="B2BModel.FK__Invoice__Payment__3B75D760" FromRole="PaymentMethod" ToRole="Invoice" />
+  </EntityType>
+  <EntityType Name="Unit">
+    <Key>
+      <PropertyRef Name="UnitId" />
+    </Key>
+    <Property Name="UnitId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UnitName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UnitStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Items" Relationship="B2BModel.FK__Item__UnitId__2B3F6F97" FromRole="Unit" ToRole="Item" />
+    <NavigationProperty Name="PurchaseOrderDetails" Relationship="B2BModel.FK__PurchaseO__UnitI__36B12243" FromRole="Unit" ToRole="PurchaseOrderDetail" />
+  </EntityType>
+  <Association Name="FK__Category__Parent__1BFD2C07">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Category1" Type="Self.Category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Category1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Feedback__ReplyI__48CFD27E">
+    <End Role="Feedback" Type="Self.Feedback" Multiplicity="0..1" />
+    <End Role="Feedback1" Type="Self.Feedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Feedback">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Feedback1">
+        <PropertyRef Name="ReplyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="B2BEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Articles" EntityType="Self.Article" />
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="ContactPersons" EntityType="Self.ContactPerson" />
+    <EntitySet Name="Countries" EntityType="Self.Country" />
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="Feedbacks" EntityType="Self.Feedback" />
+    <EntitySet Name="PaymentMethods" EntityType="Self.PaymentMethod" />
+    <EntitySet Name="Units" EntityType="Self.Unit" />
+    <AssociationSet Name="FK__Category__Parent__1BFD2C07" Association="Self.FK__Category__Parent__1BFD2C07">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Category1" EntitySet="Categories" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Feedback__ReplyI__48CFD27E" Association="Self.FK__Feedback__ReplyI__48CFD27E">
+      <End Role="Feedback" EntitySet="Feedbacks" />
+      <End Role="Feedback1" EntitySet="Feedbacks" />
+    </AssociationSet>
+    <EntitySet Name="Items" EntityType="B2BModel.Item" />
+    <AssociationSet Name="FK__Item__CategoryId__286302EC" Association="B2BModel.FK__Item__CategoryId__286302EC">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Item" EntitySet="Items" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Feedback__ItemId__47DBAE45" Association="B2BModel.FK__Feedback__ItemId__47DBAE45">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="Feedback" EntitySet="Feedbacks" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Item__ParentItem__2A4B4B5E" Association="B2BModel.FK__Item__ParentItem__2A4B4B5E">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="Item1" EntitySet="Items" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Item__UnitId__2B3F6F97" Association="B2BModel.FK__Item__UnitId__2B3F6F97">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="Item" EntitySet="Items" />
+    </AssociationSet>
+    <EntitySet Name="PurchaseOrderDetails" EntityType="B2BModel.PurchaseOrderDetail" />
+    <AssociationSet Name="FK__PurchaseO__ItemI__35BCFE0A" Association="B2BModel.FK__PurchaseO__ItemI__35BCFE0A">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="PurchaseOrderDetail" EntitySet="PurchaseOrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PurchaseO__UnitI__36B12243" Association="B2BModel.FK__PurchaseO__UnitI__36B12243">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="PurchaseOrderDetail" EntitySet="PurchaseOrderDetails" />
+    </AssociationSet>
+    <EntitySet Name="Invoices" EntityType="B2BModel.Invoice" />
+    <AssociationSet Name="FK__Invoice__Emloyee__3C69FB99" Association="B2BModel.FK__Invoice__Emloyee__3C69FB99">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Invoice" EntitySet="Invoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Invoice__Payment__3B75D760" Association="B2BModel.FK__Invoice__Payment__3B75D760">
+      <End Role="PaymentMethod" EntitySet="PaymentMethods" />
+      <End Role="Invoice" EntitySet="Invoices" />
+    </AssociationSet>
+    <EntitySet Name="PurchaseOrders" EntityType="B2BModel.PurchaseOrder" />
+    <AssociationSet Name="FK__Invoice__Purchas__3A81B327" Association="B2BModel.FK__Invoice__Purchas__3A81B327">
+      <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+      <End Role="Invoice" EntitySet="Invoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PurchaseO__Purch__34C8D9D1" Association="B2BModel.FK__PurchaseO__Purch__34C8D9D1">
+      <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+      <End Role="PurchaseOrderDetail" EntitySet="PurchaseOrderDetails" />
+    </AssociationSet>
+    <EntitySet Name="Sliders" EntityType="B2BModel.Slider" />
+    <EntitySet Name="Suppliers" EntityType="B2BModel.Supplier" />
+    <AssociationSet Name="FK__Supplier__TotalE__1FCDBCEB" Association="B2BModel.FK__Supplier__TotalE__1FCDBCEB">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Supplier" EntitySet="Suppliers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Supplier__Countr__20C1E124" Association="B2BModel.FK__Supplier__Countr__20C1E124">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="Supplier" EntitySet="Suppliers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Feedback__Suppli__46E78A0C" Association="B2BModel.FK__Feedback__Suppli__46E78A0C">
+      <End Role="Supplier" EntitySet="Suppliers" />
+      <End Role="Feedback" EntitySet="Feedbacks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Invoice_Supplier" Association="B2BModel.FK_Invoice_Supplier">
+      <End Role="Supplier" EntitySet="Suppliers" />
+      <End Role="Invoice" EntitySet="Invoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Item__SupplierId__29572725" Association="B2BModel.FK__Item__SupplierId__29572725">
+      <End Role="Supplier" EntitySet="Suppliers" />
+      <End Role="Item" EntitySet="Items" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchaseOrder_Supplier" Association="B2BModel.FK_PurchaseOrder_Supplier">
+      <End Role="Supplier" EntitySet="Suppliers" />
+      <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+    </AssociationSet>
+    <EntitySet Name="Wholesalers" EntityType="B2BModel.Wholesaler" />
+    <AssociationSet Name="FK__ContactPe__Whole__182C9B23" Association="B2BModel.FK__ContactPe__Whole__182C9B23">
+      <End Role="Wholesaler" EntitySet="Wholesalers" />
+      <End Role="ContactPerson" EntitySet="ContactPersons" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Wholesale__Count__15502E78" Association="B2BModel.FK__Wholesale__Count__15502E78">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="Wholesaler" EntitySet="Wholesalers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Feedback__Wholes__45F365D3" Association="B2BModel.FK__Feedback__Wholes__45F365D3">
+      <End Role="Wholesaler" EntitySet="Wholesalers" />
+      <End Role="Feedback" EntitySet="Feedbacks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Invoice_Wholesaler" Association="B2BModel.FK_Invoice_Wholesaler">
+      <End Role="Wholesaler" EntitySet="Wholesalers" />
+      <End Role="Invoice" EntitySet="Invoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PurchaseO__Whole__31EC6D26" Association="B2BModel.FK__PurchaseO__Whole__31EC6D26">
+      <End Role="Wholesaler" EntitySet="Wholesalers" />
+      <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="ItemId" />
+    </Key>
+    <Property Name="ItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="DescriptionItem" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Unitprice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="MinQuantity" Type="Int32" Nullable="false" />
+    <Property Name="Discount" Type="Double" />
+    <Property Name="ImageItem" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MoreImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <Property Name="SupplierId" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+    <Property Name="ParentItem" Type="Int32" />
+    <Property Name="AddedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Warranty" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UnitId" Type="Int32" Nullable="false" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ShippingFee" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FAQ" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StatusItem" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Category" Relationship="B2BModel.FK__Item__CategoryId__286302EC" FromRole="Item" ToRole="Category" />
+    <NavigationProperty Name="Feedbacks" Relationship="B2BModel.FK__Feedback__ItemId__47DBAE45" FromRole="Item" ToRole="Feedback" />
+    <NavigationProperty Name="Item1" Relationship="B2BModel.FK__Item__ParentItem__2A4B4B5E" FromRole="Item" ToRole="Item1" />
+    <NavigationProperty Name="Item2" Relationship="B2BModel.FK__Item__ParentItem__2A4B4B5E" FromRole="Item1" ToRole="Item" />
+    <NavigationProperty Name="Unit" Relationship="B2BModel.FK__Item__UnitId__2B3F6F97" FromRole="Item" ToRole="Unit" />
+    <NavigationProperty Name="PurchaseOrderDetails" Relationship="B2BModel.FK__PurchaseO__ItemI__35BCFE0A" FromRole="Item" ToRole="PurchaseOrderDetail" />
+    <NavigationProperty Name="Supplier" Relationship="B2BModel.FK__Item__SupplierId__29572725" FromRole="Item" ToRole="Supplier" />
+  </EntityType>
+  <Association Name="FK__Item__CategoryId__286302EC">
+    <End Type="B2BModel.Category" Role="Category" Multiplicity="1" />
+    <End Type="B2BModel.Item" Role="Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Feedback__ItemId__47DBAE45">
+    <End Type="B2BModel.Item" Role="Item" Multiplicity="1" />
+    <End Type="B2BModel.Feedback" Role="Feedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="ItemId" />
+      </Principal>
+      <Dependent Role="Feedback">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Item__ParentItem__2A4B4B5E">
+    <End Type="B2BModel.Item" Role="Item" Multiplicity="0..1" />
+    <End Type="B2BModel.Item" Role="Item1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="ItemId" />
+      </Principal>
+      <Dependent Role="Item1">
+        <PropertyRef Name="ParentItem" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Item__UnitId__2B3F6F97">
+    <End Type="B2BModel.Unit" Role="Unit" Multiplicity="1" />
+    <End Type="B2BModel.Item" Role="Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="UnitId" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="UnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="PurchaseOrderDetail">
+    <Key>
+      <PropertyRef Name="PurchaseOrderDetailId" />
+    </Key>
+    <Property Name="PurchaseOrderDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PurchaseOrderId" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+    <Property Name="ItemId" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Double" Nullable="false" />
+    <Property Name="Discount" Type="Double" />
+    <Property Name="Tax" Type="Double" />
+    <Property Name="LineTotal" Type="Double" />
+    <Property Name="UnitId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Item" Relationship="B2BModel.FK__PurchaseO__ItemI__35BCFE0A" FromRole="PurchaseOrderDetail" ToRole="Item" />
+    <NavigationProperty Name="Unit" Relationship="B2BModel.FK__PurchaseO__UnitI__36B12243" FromRole="PurchaseOrderDetail" ToRole="Unit" />
+    <NavigationProperty Name="PurchaseOrder" Relationship="B2BModel.FK__PurchaseO__Purch__34C8D9D1" FromRole="PurchaseOrderDetail" ToRole="PurchaseOrder" />
+  </EntityType>
+  <Association Name="FK__PurchaseO__ItemI__35BCFE0A">
+    <End Type="B2BModel.Item" Role="Item" Multiplicity="1" />
+    <End Type="B2BModel.PurchaseOrderDetail" Role="PurchaseOrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="ItemId" />
+      </Principal>
+      <Dependent Role="PurchaseOrderDetail">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PurchaseO__UnitI__36B12243">
+    <End Type="B2BModel.Unit" Role="Unit" Multiplicity="1" />
+    <End Type="B2BModel.PurchaseOrderDetail" Role="PurchaseOrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="UnitId" />
+      </Principal>
+      <Dependent Role="PurchaseOrderDetail">
+        <PropertyRef Name="UnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Invoice">
+    <Key>
+      <PropertyRef Name="InvoiceId" />
+    </Key>
+    <Property Name="InvoiceId" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+    <Property Name="PurchaseOrderId" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+    <Property Name="SupplierId" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+    <Property Name="WholesalerId" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+    <Property Name="EmloyeeID" Type="Int32" Nullable="false" />
+    <Property Name="InvoiceDate" Type="DateTime" Precision="3" />
+    <Property Name="PaymentMethodId" Type="Int32" Nullable="false" />
+    <Property Name="CreditCardNumber" Type="Int32" />
+    <Property Name="CardType" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ExpDate" Type="DateTime" Precision="3" />
+    <Property Name="FromBankNo" Type="Int32" />
+    <Property Name="ToBankNo" Type="Int32" />
+    <Property Name="InitialPayment" Type="Double" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ShipmentMethod" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ShipAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ShipFee" Type="Double" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Total" Type="Double" />
+    <NavigationProperty Name="Employee" Relationship="B2BModel.FK__Invoice__Emloyee__3C69FB99" FromRole="Invoice" ToRole="Employee" />
+    <NavigationProperty Name="PaymentMethod" Relationship="B2BModel.FK__Invoice__Payment__3B75D760" FromRole="Invoice" ToRole="PaymentMethod" />
+    <NavigationProperty Name="PurchaseOrder" Relationship="B2BModel.FK__Invoice__Purchas__3A81B327" FromRole="Invoice" ToRole="PurchaseOrder" />
+    <Property Name="PaypalId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Supplier" Relationship="B2BModel.FK_Invoice_Supplier" FromRole="Invoice" ToRole="Supplier" />
+    <NavigationProperty Name="Wholesaler" Relationship="B2BModel.FK_Invoice_Wholesaler" FromRole="Invoice" ToRole="Wholesaler" />
+  </EntityType>
+  <Association Name="FK__Invoice__Emloyee__3C69FB99">
+    <End Type="B2BModel.Employee" Role="Employee" Multiplicity="1" />
+    <End Type="B2BModel.Invoice" Role="Invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="Invoice">
+        <PropertyRef Name="EmloyeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Invoice__Payment__3B75D760">
+    <End Type="B2BModel.PaymentMethod" Role="PaymentMethod" Multiplicity="1" />
+    <End Type="B2BModel.Invoice" Role="Invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentMethod">
+        <PropertyRef Name="PaymentMethodId" />
+      </Principal>
+      <Dependent Role="Invoice">
+        <PropertyRef Name="PaymentMethodId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="PurchaseOrder">
+    <Key>
+      <PropertyRef Name="PurchaseOrderId" />
+    </Key>
+    <Property Name="PurchaseOrderId" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+    <Property Name="PurchaseOrderDate" Type="DateTime" Precision="3" />
+    <Property Name="InquiriedData" Type="DateTime" Precision="3" />
+    <Property Name="ReceivedDate" Type="DateTime" Precision="3" />
+    <Property Name="SupplierId" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+    <Property Name="WholesalerId" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StatusPurchase" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="ReplyId" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+    <Property Name="StatusInquiry" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Invoices" Relationship="B2BModel.FK__Invoice__Purchas__3A81B327" FromRole="PurchaseOrder" ToRole="Invoice" />
+    <NavigationProperty Name="PurchaseOrderDetails" Relationship="B2BModel.FK__PurchaseO__Purch__34C8D9D1" FromRole="PurchaseOrder" ToRole="PurchaseOrderDetail" />
+    <NavigationProperty Name="Supplier" Relationship="B2BModel.FK_PurchaseOrder_Supplier" FromRole="PurchaseOrder" ToRole="Supplier" />
+    <NavigationProperty Name="Wholesaler" Relationship="B2BModel.FK__PurchaseO__Whole__31EC6D26" FromRole="PurchaseOrder" ToRole="Wholesaler" />
+  </EntityType>
+  <Association Name="FK__Invoice__Purchas__3A81B327">
+    <End Type="B2BModel.PurchaseOrder" Role="PurchaseOrder" Multiplicity="1" />
+    <End Type="B2BModel.Invoice" Role="Invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PurchaseOrder">
+        <PropertyRef Name="PurchaseOrderId" />
+      </Principal>
+      <Dependent Role="Invoice">
+        <PropertyRef Name="PurchaseOrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PurchaseO__Purch__34C8D9D1">
+    <End Type="B2BModel.PurchaseOrder" Role="PurchaseOrder" Multiplicity="1" />
+    <End Type="B2BModel.PurchaseOrderDetail" Role="PurchaseOrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PurchaseOrder">
+        <PropertyRef Name="PurchaseOrderId" />
+      </Principal>
+      <Dependent Role="PurchaseOrderDetail">
+        <PropertyRef Name="PurchaseOrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Slider">
+    <Key>
+      <PropertyRef Name="SliderId" />
+    </Key>
+    <Property Name="SliderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ImageSlider" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="URL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="SupplierId" />
+    </Key>
+    <Property Name="SupplierId" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="Avatar" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Province" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MainProduct" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryId" Type="Int32" />
+    <Property Name="Website" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Zipcode" Type="Int32" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CountryId" Type="Int32" />
+    <Property Name="Status" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="BussinessType" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="YearEstablished" Type="DateTime" Precision="3" />
+    <Property Name="TotalEmployees" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Category" Relationship="B2BModel.FK__Supplier__TotalE__1FCDBCEB" FromRole="Supplier" ToRole="Category" />
+    <NavigationProperty Name="Country1" Relationship="B2BModel.FK__Supplier__Countr__20C1E124" FromRole="Supplier" ToRole="Country" />
+    <NavigationProperty Name="Feedbacks" Relationship="B2BModel.FK__Feedback__Suppli__46E78A0C" FromRole="Supplier" ToRole="Feedback" />
+    <NavigationProperty Name="Invoices" Relationship="B2BModel.FK_Invoice_Supplier" FromRole="Supplier" ToRole="Invoice" />
+    <NavigationProperty Name="Items" Relationship="B2BModel.FK__Item__SupplierId__29572725" FromRole="Supplier" ToRole="Item" />
+    <NavigationProperty Name="PurchaseOrders" Relationship="B2BModel.FK_PurchaseOrder_Supplier" FromRole="Supplier" ToRole="PurchaseOrder" />
+  </EntityType>
+  <Association Name="FK__Supplier__TotalE__1FCDBCEB">
+    <End Type="B2BModel.Category" Role="Category" Multiplicity="0..1" />
+    <End Type="B2BModel.Supplier" Role="Supplier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Supplier">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Supplier__Countr__20C1E124">
+    <End Type="B2BModel.Country" Role="Country" Multiplicity="0..1" />
+    <End Type="B2BModel.Supplier" Role="Supplier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="Supplier">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Feedback__Suppli__46E78A0C">
+    <End Type="B2BModel.Supplier" Role="Supplier" Multiplicity="1" />
+    <End Type="B2BModel.Feedback" Role="Feedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="SupplierId" />
+      </Principal>
+      <Dependent Role="Feedback">
+        <PropertyRef Name="SupplierId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Invoice_Supplier">
+    <End Type="B2BModel.Supplier" Role="Supplier" Multiplicity="1" />
+    <End Type="B2BModel.Invoice" Role="Invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="SupplierId" />
+      </Principal>
+      <Dependent Role="Invoice">
+        <PropertyRef Name="SupplierId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Item__SupplierId__29572725">
+    <End Type="B2BModel.Supplier" Role="Supplier" Multiplicity="1" />
+    <End Type="B2BModel.Item" Role="Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="SupplierId" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="SupplierId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchaseOrder_Supplier">
+    <End Type="B2BModel.Supplier" Role="Supplier" Multiplicity="0..1" />
+    <End Type="B2BModel.PurchaseOrder" Role="PurchaseOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="SupplierId" />
+      </Principal>
+      <Dependent Role="PurchaseOrder">
+        <PropertyRef Name="SupplierId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Wholesaler">
+    <Key>
+      <PropertyRef Name="WholesalerId" />
+    </Key>
+    <Property Name="WholesalerId" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+    <Property Name="Avatar" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Fullname" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="AddressWS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CountryId" Type="Int32" Nullable="false" />
+    <Property Name="Website" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Amount" Type="Double" />
+    <Property Name="StatusWS" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ContactPersons" Relationship="B2BModel.FK__ContactPe__Whole__182C9B23" FromRole="Wholesaler" ToRole="ContactPerson" />
+    <NavigationProperty Name="Country" Relationship="B2BModel.FK__Wholesale__Count__15502E78" FromRole="Wholesaler" ToRole="Country" />
+    <NavigationProperty Name="Feedbacks" Relationship="B2BModel.FK__Feedback__Wholes__45F365D3" FromRole="Wholesaler" ToRole="Feedback" />
+    <NavigationProperty Name="Invoices" Relationship="B2BModel.FK_Invoice_Wholesaler" FromRole="Wholesaler" ToRole="Invoice" />
+    <NavigationProperty Name="PurchaseOrders" Relationship="B2BModel.FK__PurchaseO__Whole__31EC6D26" FromRole="Wholesaler" ToRole="PurchaseOrder" />
+  </EntityType>
+  <Association Name="FK__ContactPe__Whole__182C9B23">
+    <End Type="B2BModel.Wholesaler" Role="Wholesaler" Multiplicity="1" />
+    <End Type="B2BModel.ContactPerson" Role="ContactPerson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Wholesaler">
+        <PropertyRef Name="WholesalerId" />
+      </Principal>
+      <Dependent Role="ContactPerson">
+        <PropertyRef Name="WholesalerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Wholesale__Count__15502E78">
+    <End Type="B2BModel.Country" Role="Country" Multiplicity="1" />
+    <End Type="B2BModel.Wholesaler" Role="Wholesaler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="Wholesaler">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Feedback__Wholes__45F365D3">
+    <End Type="B2BModel.Wholesaler" Role="Wholesaler" Multiplicity="1" />
+    <End Type="B2BModel.Feedback" Role="Feedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Wholesaler">
+        <PropertyRef Name="WholesalerId" />
+      </Principal>
+      <Dependent Role="Feedback">
+        <PropertyRef Name="WholesalerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Invoice_Wholesaler">
+    <End Type="B2BModel.Wholesaler" Role="Wholesaler" Multiplicity="1" />
+    <End Type="B2BModel.Invoice" Role="Invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Wholesaler">
+        <PropertyRef Name="WholesalerId" />
+      </Principal>
+      <Dependent Role="Invoice">
+        <PropertyRef Name="WholesalerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PurchaseO__Whole__31EC6D26">
+    <End Type="B2BModel.Wholesaler" Role="Wholesaler" Multiplicity="1" />
+    <End Type="B2BModel.PurchaseOrder" Role="PurchaseOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Wholesaler">
+        <PropertyRef Name="WholesalerId" />
+      </Principal>
+      <Dependent Role="PurchaseOrder">
+        <PropertyRef Name="WholesalerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,246 @@
+﻿@using EnotsCompany.Controllers
+@{ 
+    var supplier = await SupplierController.getInfo();
+}
+<!doctype html>
+<!--[if lt IE 8]><html class="no-js lt-ie8"> <![endif]-->
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <title>Enots Company | Supplier</title>
+    <!-- Mobile specific metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1 user-scalable=no">
+    <!-- Force IE9 to render in normal mode -->
+    <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
+    <meta name="author" content="" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="application-name" content="" />
+    <!-- Import google fonts - Heading first/ text second -->
+    <link href='http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700' rel='stylesheet' type='text/css'>
+    <!-- Css files -->
+    <!-- Icons -->
+    <link href="~/admin/css/icons.css" rel="stylesheet" />
+    <!-- Bootstrap stylesheets (included template modifications) -->
+    <link href="~/admin/css/bootstrap.css" rel="stylesheet" />
+    <!-- Plugins stylesheets (all plugin custom css) -->
+    <link href="~/admin/css/plugins.css" rel="stylesheet" />
+    <!-- Main stylesheets (template main css file) -->
+    <link href="~/admin/css/main.css" rel="stylesheet" />
+    <!-- Custom stylesheets ( Put your own changes here ) -->
+    <link href="~/admin/css/custom.css" rel="stylesheet" />
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="img/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="icon" href="img/ico/favicon.ico" type="image/png">
+    <!-- Windows8 touch icon ( http://www.buildmypinnedsite.com/ )-->
+    <meta name="msapplication-TileColor" content="#3399cc" />
+</head>
+<body>
+    <!-- .page-navbar -->
+    <div id="header" class="page-navbar">
+        <!-- .navbar-brand -->
+        <a asp-action="Index" asp-controller="Supplier" class="navbar-brand hidden-xs hidden-sm p0 m0 ">
+            <h2 align="center" class="m0 mt5 color-white  "><span class="glyphicon glyphicon-leaf"></span> ENC</h2>
+        </a>
+        <!-- / navbar-brand -->
+        <!-- .no-collapse -->
+        <div id="navbar-no-collapse" class="navbar-no-collapse">
+            <!-- top left nav -->
+            <ul class="nav navbar-nav">
+                <li class="toggle-sidebar">
+                    <a href="#">
+                        <i class="fa fa-reorder"></i>
+                        <span class="sr-only">Collapse sidebar</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="reset-layout tipB" title="Reset panel position for this page"><i class="fa fa-history"></i></a>
+                </li>
+            </ul>
+            <!-- / top left nav -->
+            <!-- top right nav -->
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a asp-controller="Account" asp-action="LogOff">
+                        <i class="fa fa-power-off"></i>
+                        <span class="sr-only">Logout</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- / top right nav -->
+        </div>
+        <!-- / collapse -->
+    </div>
+    <!-- / page-navbar -->
+    <!-- #wrapper -->
+    <div id="wrapper">
+        <!-- .page-sidebar -->
+        <aside id="sidebar" class="page-sidebar hidden-md hidden-sm hidden-xs">
+            <!-- Start .sidebar-inner -->
+            <div class="sidebar-inner">
+                <!-- Start .sidebar-scrollarea -->
+                <div class="sidebar-scrollarea">
+                    <!--  .sidebar-panel -->
+                    <div class="sidebar-panel">
+                        <h5 class="sidebar-panel-title">Profile</h5>
+                    </div>
+                    <!-- / .sidebar-panel -->
+                    <div class="user-info clearfix">
+                        <a id="confirm-modal" href="#">
+                        <img src="/images/@supplier.Avatar" width="80px" id="avatar" alt="avatar">
+                        </a>
+                        <!-- <span class="name">SuggeElson</span> -->
+                        <span class="name">@supplier.Name</span>
+                        <span class="avatar hidden">@supplier.Avatar</span>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default btn-xs">
+                                <i class="l-basic-gear"></i>
+                            </button>
+                            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                account <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu right" role="menu">
+                                <li>
+                                    <a asp-controller="Supplier" asp-action="SupplierEdit"><i class="fa fa-edit"></i>Edit profile</a>
+                                </li>
+                                <li>
+                                    <a asp-controller="Supplier" asp-action="ChangePassword"><i class="fa fa-key"></i>Change password</a>
+                                </li>
+                                @*<li>
+                                    <a href="#"><i class="fa fa-money"></i>Windraws</a>
+                                </li>*@
+                                <li class="divider"></li>
+                                <li>
+                                    <a asp-controller="Account" asp-action="LogOff"><i class="fa fa-power-off"></i>Logout</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--  .sidebar-panel -->
+                    <div class="sidebar-panel">
+                        <h5 class="sidebar-panel-title">Navigation</h5>
+                    </div>
+                    <!-- / .sidebar-panel -->
+                    <!-- .side-nav -->
+                    <div class="side-nav">
+                        <ul class="nav">
+                            <li>
+                                <a asp-action="Index" asp-controller="Supplier"><i class="l-basic-laptop"></i><span class="txt">Dashboard</span></a>
+                            </li>
+                            <li>
+                                <a  href="#"><i class="fa fa-list"></i> <span class="txt">Item</span></a>
+                                <ul class="sub">
+                                    <li><a asp-action="ItemIndex" asp-controller="Supplier" asp-route-op="enable"><span class="txt">Items</span></a></li>
+                                    <li><a asp-action="ItemIndex" asp-controller="Supplier" asp-route-op="Disable"><span class="txt">Items disable</span></a></li>
+                                </ul>
+                            </li>
+                            @*<li>
+                                <a asp-action="Index" asp-controller="Supplier"><i class="l-basic-laptop"></i><span class="txt">Dashboard</span></a>
+                            </li>*@
+                            @*<li>
+                                <a asp-action="Purchaseorder" asp-controller="Supplier"><i class="fa fa-credit-card"></i><span class="txt">Purchase Order</span></a>
+                            </li>
+                            <li>
+                                <a asp-action="InvoiceIndex" asp-controller="Supplier"><i class="fa fa-money"></i><span class="txt">Invoice</span></a>
+                            </li>
+                            <li>
+                                <a asp-action="YourSupplier" asp-controller="Supplier"><i class="fa fa-user"></i><span class="txt">WholeSaler</span></a>
+                            </li>*@
+                        </ul>
+                    </div>
+                    <!-- / side-nav -->
+                    <!--  .sidebar-panel -->
+
+                </div>
+                <!-- End .sidebar-scrollarea -->
+            </div>
+            <!-- End .sidebar-inner -->
+        </aside>
+        <!-- / page-sidebar -->
+        <!-- .page-content -->
+        <div class="page-content sidebar-page right-sidebar-page clearfix">
+            <!-- .page-content-wrapper -->
+            <div class="page-content-wrapper">
+                @RenderBody()
+            </div>
+            <!-- / page-content-wrapper -->
+        </div>
+        <!-- / page-content -->
+    </div>
+    <!-- / #wrapper 
+    <div id="footer" class="clearfix sidebar-page right-sidebar-page">
+        <!-- Start #footer  
+        <p class="pull-left">
+            Copyrights &copy; 2017 Enots Company
+        </p>
+    </div>-->
+    <!-- End #footer  -->
+    <!-- Back to top -->
+    <div id="back-to-top">
+        <a href="#">Back to Top</a>
+    </div>
+    <script src="~/admin/plugins/core/pace/pace.min.js"></script>
+    <!-- Important javascript libs(put in all pages) -->
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="js/libs/jquery-2.1.1.min.js">\x3C/script>')
+    </script>
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="js/libs/jquery-ui-1.10.4.min.js">\x3C/script>')
+    </script>
+
+    <!-- Bootstrap plugins -->
+    <script src="~/admin/js/bootstrap/bootstrap.js"></script>
+    <!-- Core plugins ( not remove ) -->
+    <script src="~/admin/js/libs/modernizr.custom.js"></script>
+    <!-- Handle responsive view functions -->
+    <script src="~/admin/js/jRespond.min.js"></script>
+    <!-- Custom scroll for sidebars,tables and etc. -->
+    <script src="~/admin/plugins/core/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="~/admin/plugins/core/slimscroll/jquery.slimscroll.horizontal.min.js"></script>
+    <!-- Remove click delay in touch -->
+    <script src="~/admin/plugins/core/fastclick/fastclick.js"></script>
+    <!-- Increase jquery animation speed -->
+    <script src="~/admin/plugins/core/velocity/jquery.velocity.min.js"></script>
+    <!-- Quick search plugin (fast search for many widgets) -->
+    <script src="~/admin/plugins/core/quicksearch/jquery.quicksearch.js"></script>
+    <!-- Bootbox fast bootstrap modals -->
+    <script src="~/admin/plugins/ui/bootbox/bootbox.js"></script>
+    <script src="~/admin/plugins/tables/datatables/jquery.dataTables.js"></script>
+    <script src="~/admin/plugins/tables/datatables/dataTables.tableTools.js"></script>
+    <script src="~/admin/plugins/tables/datatables/dataTables.bootstrap.js"></script>
+    <script src="~/admin/plugins/tables/datatables/dataTables.responsive.js"></script>
+    <script src="~/admin/js/jquery.dynamic.js"></script>
+    <script src="~/admin/js/main.js"></script>
+    <!--start ckediter-->
+    <script src="~/admin/plugins/forms/fancyselect/fancySelect.js"></script>
+    <script src="~/admin/plugins/forms/select2/select2.js"></script>
+    <script src="~/admin/plugins/forms/maskedinput/jquery.maskedinput.js"></script>
+    <script src="~/admin/plugins/forms/dual-list-box/jquery.bootstrap-duallistbox.js"></script>
+    <script src="~/admin/plugins/forms/spinner/jquery.bootstrap-touchspin.js"></script>
+    <script src="~/admin/plugins/forms/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+    <script src="~/admin/plugins/forms/bootstrap-timepicker/bootstrap-timepicker.js"></script>
+    <script src="~/admin/plugins/forms/bootstrap-colorpicker/bootstrap-colorpicker.js"></script>
+    <script src="~/admin/plugins/forms/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+    <script src="~/admin/js/libs/typeahead.bundle.js"></script>
+
+    <script src="~/admin/plugins/forms/summernote/summernote.js"></script>
+
+
+    <script src="~/admin/plugins/forms/bootstrap-markdown/bootstrap-markdown.js"></script>
+    <script src="~/admin/plugins/forms/dropzone/dropzone.js"></script>
+    <script src="~/admin/plugins/charts/sparklines/jquery.sparkline.js"></script>
+    <!--end ckediter-->
+    <script src="~/admin/js/pages/tables-data.js"></script>
+    <script src="~/admin/js/pages/forms-advanced.js"></script>
+    <script src="~/admin/js/pages/tables-ajax.js"></script>
+    <script src="~/admin/js/main.js"></script>
+    @*<script src="~/admin/js/pages/modals.js"></script>*@
+    <script src="https://cdn.ckeditor.com/4.7.0/basic/ckeditor.js"></script>   
+    <script src="~/admin/js/myJavaScript.js"></script>
+</body>
+</html>

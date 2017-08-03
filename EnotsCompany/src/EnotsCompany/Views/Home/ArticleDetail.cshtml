@@ -1,0 +1,98 @@
+﻿<div id="all">
+
+    <div id="content">
+        <div class="container">
+
+            <div class="col-sm-12">
+
+                <ul class="breadcrumb">
+
+                    <li>
+                        <a href="index">Home</a>
+                    </li>
+                    <li>
+                        <a href="/Home/Article">Blog</a>
+                    </li>
+                    <li>Blog post</li>
+                </ul>
+            </div>
+
+            <div class="col-sm-12" id="blog-post">
+
+
+                <div class="box">
+
+                    <h1>@Model.arclById.Title</h1>
+                    <p class="author-date">By <a href="#">Admin </a> | @Model.arclById.AddDate</p>
+                    <p id="article-content" class="lead hidden">@Model.arclById.Content</p>
+                    <p id="art-content" class="lead"></p>
+
+                    <div id="post-content">
+                        <p>
+                            <img src="~/images/@Model.arclById.ImageArticle" class="img-responsive" alt="Example blog post alt">
+                        </p>
+
+
+
+                    </div>
+                    <!-- /#post-content -->
+
+                    <div id="comments" data-animate="fadeInUp">
+
+                        <div class="row comment">
+                            <div class="fb-comments" data-href="http://localhost:4333/Home/ArticleDetail?id=@Model.arclById.ArticleId" width="1020" data-numposts="5"></div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <!-- /.box -->
+            </div>
+
+            <!-- /#blog-post -->
+            @*<div class="col-md-3">
+                    <!-- *** BLOG MENU ***
+                    _________________________________________________________ -->
+                    <div class="panel panel-default sidebar-menu">
+
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Blog</h3>
+                        </div>
+
+                        <div class="panel-body">
+
+                            <ul class="nav nav-pills nav-stacked">
+                                <li>
+                                    <a href="blog.html">About us</a>
+                                </li>
+                                <li class="active">
+                                    <a href="blog.html">Fashion</a>
+                                </li>
+                                <li>
+                                    <a href="blog.html">News and gossip</a>
+                                </li>
+                                <li>
+                                    <a href="blog.html">Design</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <!-- /.col-md-3 -->
+                    <!-- *** BLOG MENU END *** -->
+
+                    <div class="banner">
+                        <a href="#">
+                            <img src="img/banner.jpg" alt="sales 2014" class="img-responsive">
+                        </a>
+                    </div>
+                </div>*@
+
+
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /#content -->
+</div>

@@ -1,0 +1,53 @@
+﻿<div class="page-content-inner">
+    <!-- Start .page-content-inner -->
+    <div id="page-header" class="clearfix">
+        <div class="page-header">
+            <h2>Articles</h2>
+            @*<span class="txt">Load data from api or dynamic via ajax</span>*@
+        </div>
+        <div class="header-stats">
+            <a asp-action="ArticleCreate" asp-controller="Admin"><i class="btn btn-info fa fa-plus"></i></a>
+        </div>
+    </div>
+    <!-- Start .row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <!-- col-lg-12 start here -->
+            <div class="panel panel-default plain toggle">
+                <!-- Start .panel -->
+                <div class="panel-heading">
+                    <h4 class="panel-title">List of Articles</h4>
+                </div>
+                <div class="panel-body">
+                    <table id="basic-datatables" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Title</th>
+                                <th>Status</th>
+                                <th style="text-align:right">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td><img  src="~/images/@item.ImageArticle" width="80px"/></td>
+                                    <td>@item.Title</td>
+                                    <td>@item.StatusArticle</td>
+                                    <td>
+                                        <a asp-action="ArticleDelete" asp-controller="Admin" asp-route-id="@item.ArticleId"> <i class="btn btn-info fa fa-trash-o pull-right"></i></a>
+                                        <a asp-action="ArticleEdit" asp-controller="Admin" asp-route-id="@item.ArticleId"> <i class="btn btn-info fa fa-edit pull-right"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- End .panel -->
+        </div>
+        <!-- col-lg-12 end here -->
+    </div>
+    <!-- End .row -->
+</div>
